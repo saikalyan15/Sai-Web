@@ -1,26 +1,53 @@
 baseURL: /
 languageCode: en-us
-title: Home
+title: Saikalyan Akunuri
 theme: PaperMod
 
-params:
-  HomeInfoParams:
-    Title: "Hi, I'm Saikalyan Akunuri."
-    Content: "Developer, Program Manager, Agile Coach"
-  socialIcons:
-    
-    - name: twitter
-      url: "https://twitter.com/Sai_A"
-    - name: github
-      url: "https://github.com/saikalyan15"
+googleAnalytics: G-BPKREZYJQ4
+canonicalURL: "https://canonical.url/to/page"	
 
-  cover:
-    linkFullImages: true
+params:
+  defaultTheme: light
+  disableThemeToggle: true
   ShowBreadCrumbs: true
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
+  ShowToc: true
+  ShowWordCount: true
+  TocOpen: true
+  env: production
+  author: "Saikalyan Akunuri"
 
+  profileMode:
+    enabled: true
+    title: "Hi, I'm Sai"
+    subtitle: "A Curious Developer"
+    imageUrl: images/Me.jpg
+    imageWidth: 250
+    imageHeight: 250
+    
+
+
+  socialIcons:
+    - name: linkedin
+      url: "https://www.linkedin.com/in/saikalyanakunuri/"
+    - name: twitter
+      url: "https://twitter.com/Sai_A"
+    - name: github
+      url: "https://github.com/saikalyan15"
+    - name: dev.to
+      url: "https://dev.to/saikalyan15"
+    - name: medium
+      url: "https://medium.com/@saikalyan.akunuri"
+    - name: email
+      url: saikalyan.akunuri@gmail.com
+
+
+  cover:
+    linkFullImages: true
+  
+# Adding Menu to Website
 menu: 
   main:
     - identifier: About
@@ -29,21 +56,14 @@ menu:
       weight: 1
     - identifier: blog
       name: Blog
-      url: /blog/
+      url: /posts/
       weight: 2
-    - identifier: contact
-      name: Contact
-      url: /contact/
+    - identifier: learning
+      name: Learning
+      url: /learning/
       weight: 3
-    - identifier: categories
-      name: Categories
-      url: /categories/
-      weight: 10
-    - identifier: tags
-      name: Tags
-      url: /tags/
-      weight: 20
     - identifier: archives
       name: Archives
       url: /archives/
-      weight: 30
+      weight: 4
+    
