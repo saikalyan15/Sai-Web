@@ -1,9 +1,10 @@
 ---
-title: "AWS SageMaker"
+title: "AWS SageMaker: Inital Setup"
 date: 2023-07-20T16:08:24+05:30
-draft: false
+draft: true
 cover: 
     image: images/posts/AWS%20SageMaker-2023-07-25-14-52-09.png
+    url: "#"
     alt: AWS SageMaker
     caption : AWS SageMaker
 tags: ["sagemaker", "aws"]
