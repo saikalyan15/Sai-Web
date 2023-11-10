@@ -18,11 +18,12 @@ params:
   TocOpen: true
   env: production
   author: "Saikalyan Akunuri"
+  
 
   profileMode:
     enabled: true
     title: "Hi, I'm Sai"
-    subtitle: "A Curious Developer"
+    subtitle: "Exploring the world of Technical Writing"
     imageUrl: images/Me.jpg
     imageWidth: 250
     imageHeight: 250
@@ -34,12 +35,12 @@ params:
       url: "https://www.linkedin.com/in/saikalyanakunuri/"
     - name: twitter
       url: "https://twitter.com/Sai_A"
-    - name: github
-      url: "https://github.com/saikalyan15"
-    - name: dev.to
-      url: "https://dev.to/saikalyan15"
-    - name: medium
-      url: "https://medium.com/@saikalyan.akunuri"
+    # - name: github
+    #   url: "https://github.com/saikalyan15"
+    # - name: dev.to
+    #   url: "https://dev.to/saikalyan15"
+    # - name: medium
+    #   url: "https://medium.com/@saikalyan.akunuri"
     - name: email
       url: saikalyan.akunuri@gmail.com
 
@@ -50,20 +51,26 @@ params:
 # Adding Menu to Website
 menu: 
   main:
+    - identifier: Home
+      name: Home
+      url: /
+      weight: 1
+    
     - identifier: About
       name: About
       url: /about/
-      weight: 1
+      weight: 2
     - identifier: blog
       name: Blog
       url: /posts/
-      weight: 2
-    - identifier: learning
-      name: Learning
-      url: /learning/
       weight: 3
-    - identifier: archives
-      name: Archives
-      url: /archives/
-      weight: 4
     
+    
+
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: false

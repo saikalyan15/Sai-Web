@@ -5,10 +5,11 @@ url: /about/
 
 ---
 
-I have done my Bachelors of Mechanical Engineering and have been working in software development since last 20+ years.
-I started by career with Oracle, D2K, Visual Basic in the year 1997. By 2000 I was working on .NET, ASP.NET, Biztalk.
-Offlate I work on angular, azure IOT, Service Fabric, SQL Server and Datalake. I have worked in many roles such as developer, designer, presales, architect, project manager, program manager.
+I'm Sai, a technical program manager and freelance writer from Bangalore, India
 
+I have been programming since 1998 and worked in desktop, web, ckoud and iot based applications.
+In my current role I manage several scrum teams. I am an agile mentor for all my teams and have a passion for programming.
+So much so that I have used it to build a series of automations on project delivery and quality metrics on top of Jira and reporting it in Confluence.
 
-I was working as Program manager managing multiple scrum teams across geographies before I went on sabbatical.
+From an education perspective I have done my Bachelors in Mechanical Engineering but soon realised after completion that software if the field for me.
 
