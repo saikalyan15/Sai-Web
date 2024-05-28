@@ -64,6 +64,10 @@ menu:
       name: Blog
       url: /posts/
       weight: 3
+    - identifier: newsletter
+      name: newsletter
+      url: https://saikalyan.substack.com/
+      weight: 4
     
     
 
