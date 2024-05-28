@@ -23,7 +23,7 @@ params:
   profileMode:
     enabled: true
     title: "Hi, I'm Sai"
-    subtitle: "Exploring the world of Technical Writing"
+    subtitle: "Exploring the world of Writing"
     imageUrl: images/Me.jpg
     imageWidth: 250
     imageHeight: 250
