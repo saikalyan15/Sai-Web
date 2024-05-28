@@ -47,6 +47,6 @@ One of the major drawbacks of remote work is active participation during meeting
 
 While on other occasions cutting down on background conversations from family members or television have been difficult to control and moderate thereby resulting in less productive meetings. This especially true for large participant meetings.
 
-# Conclusion
+**Conclusion**
 
 Remote work is here to stay. There is no denying the fact that employees are looking for some flexibility in their work schedules. At the same time true engagement happens in person and a lot of them look forward to meeting their colleagues occasionally away from the home grind. There could be a debate on the percentage of remote work but we can conclude that the organization will continue to give it as an option for employees in 2023. Hybrid model is the way forward
