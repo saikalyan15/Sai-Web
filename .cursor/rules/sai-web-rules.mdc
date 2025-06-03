@@ -1,0 +1,69 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+rules:
+  # Confidence and safety
+  - "Only act when at least 95% confident; otherwise, ask clarifying questions before proceeding"
+  - "When unsure about the latest Next.js, Tailwind, shadcn/ui, or TypeScript practices, consult the official documentation before making changes"
+
+  # Project structure and architecture
+  - "Use only the /app directory (App Router); do not use /pages or /src/app"
+  - "Respect and reuse the current folder structure; do not introduce new architectural patterns without clear justification"
+  - "Group all reusable logic under /components, /lib, or /hooks based on purpose"
+  - "Avoid placing new files in root unless absolutely necessary (e.g., config files)"
+  - "Do not change routing strategies or introduce parallel implementations"
+
+  # Component and code reuse
+  - "Always check for existing components, hooks, and utilities before creating new ones"
+  - "Refactor only when patterns are broken or duplication is unavoidable"
+  - "Extract and reuse UI patterns as components instead of repeating them"
+
+  # Styling (Tailwind + shadcn/ui)
+  - "Use Tailwind utility classes for styling unless a shadcn component already handles the use case"
+  - "Do not mix inline Tailwind with shadcn styling arbitrarily on the same page"
+  - "Ensure consistent use of design patterns across all pages and components"
+  - "Customize shadcn/ui components using Tailwind or component overrides"
+  - "Use Tailwind plugins instead of writing custom utilities where possible"
+
+  # TypeScript-only usage
+  - "Do not use JavaScript (.js or .jsx); use only TypeScript (.ts or .tsx)"
+  - "Use strict typing for function arguments, component props, and return types"
+  - "Prefer type inference where safe; use explicit types for public APIs"
+  - "Avoid using any; prefer unknown, union types, or enums where applicable"
+  - "Use interfaces for component props and types for internal data"
+
+  # Next.js (App Router)
+  - "Use server components by default; mark client components only when interactivity is needed"
+  - "Use layout.tsx, loading.tsx, and error.tsx appropriately in each route"
+  - "Use the metadata API for setting route-level SEO metadata"
+  - "Avoid using browser-only APIs in server components"
+  - "Validate dynamic route params and queries to prevent runtime issues"
+
+  # Code formatting and structure
+  - "Use Prettier and ESLint with TypeScript support for consistent formatting"
+  - "Use named arrow functions for clarity and maintainability"
+  - "Avoid deeply nested logic; extract reusable logic into hooks or utils"
+  - "Limit component size to 200–300 lines; split into smaller parts if needed"
+
+  # Environment and production safety
+  - "Never hardcode URLs or sensitive values; use process.env consistently"
+  - "Do not expose secrets to the client"
+  - "Never overwrite .env files without explicit confirmation"
+  - "Avoid dev-only assumptions in code that runs in production (e.g., relying on local data or mocks)"
+
+  # Testing practices
+  - "Use mock data only in test files; never in dev or production code paths"
+  - "Test components with logic, conditional rendering, or user input handling"
+  - "Use test IDs or accessibility attributes where automation is expected"
+
+  # Git and pull request standards
+  - "Use conventional commits (e.g., feat:, fix:, chore:) for clarity and changelogs"
+  - "Each pull request must include a clear summary of the problem and chosen solution"
+
+  # Documentation and clarity
+  - "Update README or in-code docs when routes, APIs, or env requirements change"
+  - "Add comments only where the logic is non-obvious or uses unconventional patterns"
+
+
