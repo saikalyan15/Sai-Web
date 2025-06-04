@@ -1,13 +1,13 @@
 export function Services() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-muted px-4">
+    <section className="max-w-6xl mx-auto px-6 py-16">
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               My Services
             </h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className="text-gray-700 text-base md:text-lg max-w-[900px] mx-auto">
               Expert automation solutions to streamline your workflow
             </p>
           </div>
@@ -16,8 +16,10 @@ export function Services() {
           <div className="relative overflow-hidden rounded-lg border bg-background p-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h3 className="text-xl font-bold">n8n Setup & Self-Hosting</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-xl font-bold text-gray-900">
+                  n8n Setup & Self-Hosting
+                </h3>
+                <p className="text-gray-700 text-base md:text-lg">
                   Custom installs, tunnels, and error-proof configurations
                 </p>
               </div>
@@ -26,8 +28,10 @@ export function Services() {
           <div className="relative overflow-hidden rounded-lg border bg-background p-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h3 className="text-xl font-bold">Workflow Automation</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-xl font-bold text-gray-900">
+                  Workflow Automation
+                </h3>
+                <p className="text-gray-700 text-base md:text-lg">
                   Build time-saving logic using Notion, Slack, APIs, Google
                   Sheets
                 </p>
@@ -37,8 +41,10 @@ export function Services() {
           <div className="relative overflow-hidden rounded-lg border bg-background p-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h3 className="text-xl font-bold">Support & Maintenance</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-xl font-bold text-gray-900">
+                  Support & Maintenance
+                </h3>
+                <p className="text-gray-700 text-base md:text-lg">
                   Ongoing tweaks, updates, and reliability checks
                 </p>
               </div>

@@ -3,19 +3,22 @@ import { Button } from "@/components/ui/button";
 
 export function Hero() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 px-4">
+    <section className="max-w-6xl mx-auto px-6 py-16">
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col items-center space-y-4 text-center">
           <div className="space-y-2">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
               Helping you automate smarter with n8n
             </h1>
-            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+            <p className="text-gray-700 text-base md:text-lg mx-auto max-w-[700px]">
               I design open-source automations that save time and reduce costs.
             </p>
           </div>
           <div className="space-x-4">
-            <Button size="lg">
+            <Button
+              size="lg"
+              className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-medium transition"
+            >
               Work with me
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
