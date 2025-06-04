@@ -1,7 +1,10 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 export function Navbar() {
+  const pathname = usePathname();
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-5xl mx-auto px-4 w-full">
@@ -12,31 +15,51 @@ export function Navbar() {
           <nav className="hidden md:flex items-center gap-6">
             <Link
               href="/"
-              className="text-sm font-medium transition-colors hover:text-primary"
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                pathname === "/"
+                  ? "font-semibold text-black underline"
+                  : "text-muted-foreground"
+              }`}
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                pathname === "/about"
+                  ? "font-semibold text-black underline"
+                  : "text-muted-foreground"
+              }`}
             >
               About
             </Link>
             <Link
               href="/services"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                pathname === "/services"
+                  ? "font-semibold text-black underline"
+                  : "text-muted-foreground"
+              }`}
             >
               Services
             </Link>
             <Link
               href="/blog"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                pathname === "/blog"
+                  ? "font-semibold text-black underline"
+                  : "text-muted-foreground"
+              }`}
             >
               Blog
             </Link>
             <Link
               href="/contact"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                pathname === "/contact"
+                  ? "font-semibold text-black underline"
+                  : "text-muted-foreground"
+              }`}
             >
               Contact
             </Link>
