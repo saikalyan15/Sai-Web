@@ -3,7 +3,6 @@ import { Services } from "@/components/Services";
 import { BlogPosts } from "@/components/BlogPosts";
 import { AboutMe } from "@/components/AboutMe";
 import { ContactCTA } from "@/components/ContactCTA";
-import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
         <AboutMe />
         <ContactCTA />
       </main>
-      <Footer />
     </div>
   );
 }
