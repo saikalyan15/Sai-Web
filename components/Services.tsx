@@ -13,7 +13,7 @@ export function Services() {
           </div>
         </div>
         <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:gap-8 py-8">
-          <div className="relative overflow-hidden rounded-lg border bg-background p-6">
+          <div className="relative overflow-hidden rounded-lg border bg-background p-6 transition-all duration-200 hover:shadow-lg hover:scale-105 cursor-pointer">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
                 <h3 className="text-xl font-bold text-gray-900">
@@ -25,7 +25,7 @@ export function Services() {
               </div>
             </div>
           </div>
-          <div className="relative overflow-hidden rounded-lg border bg-background p-6">
+          <div className="relative overflow-hidden rounded-lg border bg-background p-6 transition-all duration-200 hover:shadow-lg hover:scale-105 cursor-pointer">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
                 <h3 className="text-xl font-bold text-gray-900">
@@ -38,7 +38,7 @@ export function Services() {
               </div>
             </div>
           </div>
-          <div className="relative overflow-hidden rounded-lg border bg-background p-6">
+          <div className="relative overflow-hidden rounded-lg border bg-background p-6 transition-all duration-200 hover:shadow-lg hover:scale-105 cursor-pointer">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
                 <h3 className="text-xl font-bold text-gray-900">
