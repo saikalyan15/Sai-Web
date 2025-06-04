@@ -4,19 +4,13 @@ import { Button } from "@/components/ui/button";
 
 export function BlogPosts() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Recent Blog Posts
-            </h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Insights and tutorials on automation and n8n
-            </p>
-          </div>
-        </div>
-        <div className="mx-auto grid justify-center gap-8 sm:grid-cols-2 md:max-w-[64rem] py-8">
+    <section className="py-16 bg-white">
+      <div className="max-w-5xl mx-auto px-4 text-center">
+        <h2 className="text-3xl font-bold mb-2">Recent Blog Posts</h2>
+        <p className="text-gray-600 mb-10">
+          Insights and tutorials on automation and n8n
+        </p>
+        <div className="grid md:grid-cols-2 gap-8 justify-center">
           <div className="relative overflow-hidden rounded-lg border bg-background">
             <div className="flex flex-col space-y-4">
               <Image
