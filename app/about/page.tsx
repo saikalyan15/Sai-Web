@@ -60,9 +60,11 @@ export default function AboutPage() {
 
           {/* CTA Button */}
           <div className="mt-6">
-            <Button size="lg" className="w-full sm:w-auto">
-              Let's Work Together
-            </Button>
+            <Link href="/contact">
+              <Button size="lg" className="w-full sm:w-auto">
+                Let's Work Together
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
