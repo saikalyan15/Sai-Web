@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { Mail, Linkedin } from "lucide-react";
+import Script from "next/script";
 
 export default function ContactPage() {
+  const calendlyUrl = "https://calendly.com/saikalyan-akunuri/30min";
+
   return (
     <section className="max-w-3xl mx-auto px-4 py-16 text-center">
       <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -12,7 +15,7 @@ export default function ContactPage() {
         want to chat about smart workflows, feel free to reach out.
       </p>
 
-      <div className="flex flex-col items-center space-y-4">
+      <div className="flex flex-col items-center space-y-4 mb-12">
         <a
           href="mailto:sai@saikalyanakunuri.com"
           className="inline-flex items-center text-blue-600 hover:underline text-lg"
@@ -31,6 +34,16 @@ export default function ContactPage() {
           LinkedIn Profile
         </a>
       </div>
+
+      <div
+        className="calendly-inline-widget"
+        data-url={calendlyUrl}
+        style={{ minWidth: "320px", height: "630px" }}
+      ></div>
+      <Script
+        src="https://assets.calendly.com/assets/external/widget.js"
+        async
+      />
 
       <div className="mt-12">
         <Link href="/" className="text-gray-600 hover:underline">
