@@ -11,6 +11,56 @@ export const metadata: Metadata = {
   title: "Saikalyan Akunuri - n8n Automation Consultant",
   description:
     "Helping you automate smarter with n8n. I design open-source automations that save time and reduce costs.",
+  keywords: [
+    "n8n automation",
+    "automation consultant",
+    "workflow automation",
+    "open-source automation",
+    "n8n expert",
+    "process automation",
+    "time-saving solutions",
+    "cost reduction",
+  ],
+  authors: [{ name: "Saikalyan Akunuri" }],
+  creator: "Saikalyan Akunuri",
+  publisher: "Saikalyan Akunuri",
+  metadataBase: new URL("https://www.saikalyanakunuri.com"), // Replace with your actual domain
+  openGraph: {
+    title: "Saikalyan Akunuri - n8n Automation Consultant",
+    description:
+      "Helping you automate smarter with n8n. I design open-source automations that save time and reduce costs.",
+    url: "https://www.saikalyanakunuri.com", // Replace with your actual domain
+    siteName: "Saikalyan Akunuri - Automation Consultant",
+    images: [
+      {
+        url: "/og-image.jpg", // Recommended: Create a specific Open Graph image
+        width: 1200,
+        height: 630,
+        alt: "Saikalyan Akunuri - n8n Automation Consultant",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Saikalyan Akunuri - n8n Automation Consultant",
+    description:
+      "Helping you automate smarter with n8n. I design open-source automations that save time and reduce costs.",
+    images: ["/og-image.jpg"], // Recommended: Create a specific Twitter image
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-snippet": -1,
+    },
+  },
   generator: "v0.dev",
 };
 
