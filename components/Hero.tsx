@@ -15,10 +15,10 @@ export function Hero() {
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="flex flex-col items-center space-y-4 text-center">
           <div className="space-y-2">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground">
               Helping you automate smarter with n8n
             </h1>
-            <p className="text-gray-700 text-base md:text-lg mx-auto max-w-[700px]">
+            <p className="text-muted-foreground text-base md:text-lg mx-auto max-w-[700px]">
               I design open-source automations that save time and reduce costs.
             </p>
           </div>
@@ -26,7 +26,7 @@ export function Hero() {
             <Link href="/contact">
               <Button
                 size="lg"
-                className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-medium transition"
+                className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2 rounded-md text-sm font-medium transition"
               >
                 Work with me
                 <ArrowRight className="ml-2 h-4 w-4" />

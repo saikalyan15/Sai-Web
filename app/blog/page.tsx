@@ -65,9 +65,9 @@ export default function BlogPage() {
   const posts = getBlogPosts();
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16 bg-white">
+    <section className="max-w-6xl mx-auto px-6 py-16">
       <div className="max-w-5xl mx-auto px-4 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-10">
+        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-10">
           Blog
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-6xl mx-auto">
@@ -75,10 +75,10 @@ export default function BlogPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="block w-full max-w-[320px] overflow-hidden rounded-lg border bg-background transition-all duration-200 hover:shadow-lg hover:scale-[1.02] cursor-pointer flex flex-col h-full"
+              className="block w-full max-w-[320px] overflow-hidden rounded-lg border bg-card text-card-foreground transition-all duration-200 hover:shadow-lg hover:scale-[1.02] cursor-pointer flex flex-col h-full"
             >
               {post.featuredImage && (
-                <div className="relative w-full h-48 bg-gray-100">
+                <div className="relative w-full h-48 bg-muted">
                   <Image
                     src={post.featuredImage}
                     alt={`Featured image for ${post.title}`}
@@ -89,14 +89,16 @@ export default function BlogPage() {
                 </div>
               )}
               <div className="p-6 flex flex-col flex-grow">
-                <h2 className="text-xl font-bold text-gray-900 mb-2">
+                <h2 className="text-xl font-bold text-foreground mb-2">
                   {post.title}
                 </h2>
-                <p className="text-sm text-gray-500 mb-4">{post.date}</p>
-                <p className="text-gray-700 text-base flex-grow">
+                <p className="text-sm text-muted-foreground mb-4">
+                  {post.date}
+                </p>
+                <p className="text-muted-foreground text-base flex-grow">
                   {post.excerpt}
                 </p>
-                <div className="text-blue-600 text-sm font-medium inline-flex items-center self-end mt-4">
+                <div className="text-primary text-sm font-medium inline-flex items-center self-end mt-4">
                   Read more
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </div>

@@ -51,17 +51,17 @@ export default async function BlogPostPage({
       {/* Back to blog link */}
       <Link
         href="/blog"
-        className="text-blue-600 hover:underline mb-6 inline-block"
+        className="text-primary hover:underline mb-6 inline-block"
       >
         ← Back to blog
       </Link>
 
-      <h1 className="text-3xl font-bold mb-4">{title}</h1>
-      <div className="text-sm text-gray-500 mb-6">{date}</div>
+      <h1 className="text-3xl font-bold mb-4 text-foreground">{title}</h1>
+      <div className="text-sm text-muted-foreground mb-6">{date}</div>
 
       {/* Featured Image */}
       {featuredImage && (
-        <div className="relative w-full h-64 md:h-80 lg:h-96 mb-6 rounded-lg overflow-hidden">
+        <div className="relative w-full h-64 md:h-80 lg:h-96 mb-6 rounded-lg overflow-hidden bg-muted">
           <Image
             src={featuredImage}
             alt={`Featured image for ${title}`}
@@ -73,7 +73,7 @@ export default async function BlogPostPage({
       )}
 
       {/* Blog Content */}
-      <div className="prose lg:prose-lg mx-auto">
+      <div className="prose lg:prose-lg mx-auto dark:prose-invert">
         <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
       </div>
     </div>

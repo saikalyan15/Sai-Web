@@ -68,12 +68,12 @@ export function BlogPosts() {
   const recentPosts = posts.slice(0, 4);
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16 bg-white">
+    <section className="max-w-6xl mx-auto px-6 py-16 bg-background">
       <div className="max-w-5xl mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
           Recent Blog Posts
         </h2>
-        <p className="text-gray-700 text-base md:text-lg max-w-[900px] mx-auto mb-10">
+        <p className="text-muted-foreground text-base md:text-lg max-w-[900px] mx-auto mb-10">
           Insights and tutorials on automation and n8n
         </p>
         {/* Center the grid container with consistent spacing */}
@@ -82,10 +82,10 @@ export function BlogPosts() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="block w-full max-w-[320px] overflow-hidden rounded-lg border bg-background transition-all duration-200 hover:shadow-lg hover:scale-[1.02] cursor-pointer flex flex-col h-full"
+              className="block w-full max-w-[320px] overflow-hidden rounded-lg border bg-card transition-all duration-200 hover:shadow-lg hover:scale-[1.02] cursor-pointer flex flex-col h-full"
             >
               {post.featuredImage && (
-                <div className="relative w-full h-48 bg-gray-100">
+                <div className="relative w-full h-48 bg-muted">
                   <Image
                     src={post.featuredImage}
                     alt={`Featured image for ${post.title}`}
@@ -96,14 +96,14 @@ export function BlogPosts() {
                 </div>
               )}
               <div className="p-6 flex flex-col space-y-3 flex-grow">
-                <h3 className="text-xl font-bold text-gray-900">
+                <h3 className="text-xl font-bold text-foreground">
                   {post.title}
                 </h3>
-                <p className="text-sm text-gray-500">{post.date}</p>
-                <p className="text-gray-700 text-base flex-grow">
+                <p className="text-sm text-muted-foreground">{post.date}</p>
+                <p className="text-muted-foreground text-base flex-grow">
                   {post.excerpt}
                 </p>
-                <div className="text-blue-600 text-sm font-medium inline-flex items-center self-end mt-auto">
+                <div className="text-primary text-sm font-medium inline-flex items-center self-end mt-auto">
                   Read more
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </div>

@@ -17,7 +17,7 @@ export function Navbar() {
               href="/"
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 pathname === "/"
-                  ? "font-semibold text-black underline"
+                  ? "font-semibold text-foreground underline"
                   : "text-muted-foreground"
               }`}
             >
@@ -27,7 +27,7 @@ export function Navbar() {
               href="/about"
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 pathname === "/about"
-                  ? "font-semibold text-black underline"
+                  ? "font-semibold text-foreground underline"
                   : "text-muted-foreground"
               }`}
             >
@@ -37,7 +37,7 @@ export function Navbar() {
               href="/services"
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 pathname === "/services"
-                  ? "font-semibold text-black underline"
+                  ? "font-semibold text-foreground underline"
                   : "text-muted-foreground"
               }`}
             >
@@ -47,7 +47,7 @@ export function Navbar() {
               href="/blog"
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 pathname === "/blog"
-                  ? "font-semibold text-black underline"
+                  ? "font-semibold text-foreground underline"
                   : "text-muted-foreground"
               }`}
             >
@@ -57,7 +57,7 @@ export function Navbar() {
               href="/contact"
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 pathname === "/contact"
-                  ? "font-semibold text-black underline"
+                  ? "font-semibold text-foreground underline"
                   : "text-muted-foreground"
               }`}
             >
