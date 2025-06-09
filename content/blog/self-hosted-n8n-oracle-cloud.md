@@ -184,3 +184,4 @@ Here's what worked and what didn't:
 This is now a secure, production-ready setup with your own subdomain and HTTPS. Let me know if you need a follow-up on CI/CD or backups!
 
 Happy automating 🤖✨ 
+#### Note: Special thanks to ChatGPT and Claude for helping me through my debug sessions and compiling all the steps in this post.
