@@ -73,7 +73,7 @@ export default async function BlogPostPage({
       )}
 
       {/* Blog Content */}
-      <div className="prose lg:prose-lg mx-auto dark:prose-invert">
+      <div className="prose lg:prose-lg mx-auto dark:prose-invert markdown-content-tables">
         <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
       </div>
     </div>

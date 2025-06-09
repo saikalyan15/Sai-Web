@@ -13,6 +13,24 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      typography: ({ theme }: { theme: any }) => ({
+        DEFAULT: {
+          css: {
+            table: {
+              width: "100%",
+              borderCollapse: "collapse",
+              "th, td": {
+                border: "1px solid " + theme("colors.border"),
+                padding: "0.5rem",
+                textAlign: "left",
+              },
+              th: {
+                fontWeight: "bold",
+              },
+            },
+          },
+        },
+      }),
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

@@ -92,3 +92,19 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.markdown-content-tables table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.markdown-content-tables th,
+.markdown-content-tables td {
+  border: 1px solid var(--border);
+  padding: 8px;
+  text-align: left;
+}
+
+.markdown-content-tables th {
+  font-weight: bold;
+}
