@@ -1,4 +1,5 @@
 ---
+category: automation
 title: "How I Automated Instagram from Notion using n8n"
 date: "2024-06-01"
 slug: "automate-instagram-notion-n8n"

@@ -31,6 +31,11 @@ const config: Config = {
           },
         },
       }),
+      fontFamily: {
+        display: ["var(--font-playfair)", "serif"],
+        serif: ["var(--font-source-serif)", "serif"],
+        mono: ["var(--font-jetbrains-mono)", "monospace"],
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -65,6 +70,7 @@ const config: Config = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        divider: "hsl(var(--divider))",
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",

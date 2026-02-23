@@ -1,42 +1,53 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
-import { Inter } from "next/font/google";
+import { Playfair_Display, Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
+
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  variable: "--font-source-serif",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+});
 
 export const metadata: Metadata = {
-  title: "Saikalyan Akunuri - n8n Automation Consultant",
+  title: "Saikalyan Akunuri - Responsible AI Writer and Practitioner",
   description:
-    "Helping you automate smarter with n8n. I design open-source automations that save time and reduce costs.",
+    "30 years in software engineering. Now writing about what Responsible AI actually means for the teams building AI systems, not the boardrooms governing them.",
   keywords: [
-    "n8n automation",
-    "automation consultant",
-    "workflow automation",
-    "open-source automation",
-    "n8n expert",
-    "process automation",
-    "time-saving solutions",
-    "cost reduction",
+    "Responsible AI",
+    "software engineering",
+    "AI governance",
+    "engineering ethics",
+    "tech writing",
+    "automation",
   ],
   authors: [{ name: "Saikalyan Akunuri" }],
   creator: "Saikalyan Akunuri",
   publisher: "Saikalyan Akunuri",
-  metadataBase: new URL("https://www.saikalyanakunuri.com"), // Replace with your actual domain
+  metadataBase: new URL("https://www.saikalyanakunuri.com"),
   openGraph: {
-    title: "Saikalyan Akunuri - n8n Automation Consultant",
+    title: "Saikalyan Akunuri - Responsible AI Writer and Practitioner",
     description:
-      "Helping you automate smarter with n8n. I design open-source automations that save time and reduce costs.",
-    url: "https://www.saikalyanakunuri.com", // Replace with your actual domain
-    siteName: "Saikalyan Akunuri - Automation Consultant",
+      "30 years in software engineering. Now writing about what Responsible AI actually means for the teams building AI systems, not the boardrooms governing them.",
+    url: "https://www.saikalyanakunuri.com",
+    siteName: "Saikalyan Akunuri",
     images: [
       {
-        url: "/og-image.jpg", // Recommended: Create a specific Open Graph image
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Saikalyan Akunuri - n8n Automation Consultant",
+        alt: "Saikalyan Akunuri",
       },
     ],
     locale: "en_US",
@@ -44,24 +55,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saikalyan Akunuri - n8n Automation Consultant",
+    title: "Saikalyan Akunuri - Responsible AI Writer and Practitioner",
     description:
-      "Helping you automate smarter with n8n. I design open-source automations that save time and reduce costs.",
-    images: ["/og-image.jpg"], // Recommended: Create a specific Twitter image
+      "30 years in software engineering. Now writing about what Responsible AI actually means for the teams building AI systems, not the boardrooms governing them.",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
     follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      "max-video-preview": -1,
-      "max-snippet": -1,
-    },
   },
-  generator: "v0.dev",
 };
 
 export default function RootLayout({
@@ -70,12 +72,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${playfair.variable} ${sourceSerif.variable} ${jetbrainsMono.variable} font-serif flex flex-col min-h-screen antialiased`}
+      >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          forcedTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Navbar />

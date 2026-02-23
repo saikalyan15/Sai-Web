@@ -1,54 +1,64 @@
 import Link from "next/link";
 import { Mail, Linkedin } from "lucide-react";
-import Script from "next/script";
 
 export default function ContactPage() {
-  const calendlyUrl = "https://calendly.com/saikalyan-akunuri/30min";
-
   return (
-    <section className="max-w-3xl mx-auto px-4 py-16 text-center">
-      <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-        Let's Connect
-      </h1>
-      <p className="text-muted-foreground text-base md:text-lg mb-8">
-        If you're looking to automate parts of your business with n8n or just
-        want to chat about smart workflows, feel free to reach out.
-      </p>
+    <section className="py-24 md:py-32 bg-background grain min-h-screen">
+      <div className="max-w-[720px] mx-auto px-6">
+        <div className="space-y-12">
+          <header className="space-y-4">
+            <span className="font-mono text-xs uppercase tracking-widest text-accent">
+              Let's Connect
+            </span>
+            <h1 className="text-4xl md:text-6xl font-display leading-tight text-foreground">
+              Drop me a line.
+            </h1>
+          </header>
 
-      <div className="flex flex-col items-center space-y-4 mb-12">
-        <a
-          href="mailto:sai@saikalyanakunuri.com"
-          className="inline-flex items-center text-primary hover:underline text-lg"
-        >
-          <Mail className="mr-2 h-5 w-5" />
-          sai@saikalyanakunuri.com
-        </a>
+          <p className="text-lg md:text-xl text-muted-foreground font-serif leading-relaxed">
+            If you want to talk about Responsible AI, software engineering at scale, or anything else I've written about, feel free to reach out. I'm always up for a conversation that goes beyond the buzzwords.
+          </p>
 
-        <a
-          href="https://www.linkedin.com/in/saikalyanakunuri/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center text-primary hover:underline text-lg"
-        >
-          <Linkedin className="mr-2 h-5 w-5" />
-          LinkedIn Profile
-        </a>
-      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12 border-t border-divider">
+            <div className="space-y-4">
+              <h3 className="font-mono text-xs uppercase tracking-widest text-accent">Email</h3>
+              <a
+                href="mailto:sai@saikalyanakunuri.com"
+                className="block text-2xl font-display text-foreground hover:text-accent transition-colors duration-300"
+              >
+                sai@saikalyanakunuri.com
+              </a>
+            </div>
 
-      <div
-        className="calendly-inline-widget"
-        data-url={calendlyUrl}
-        style={{ minWidth: "320px", height: "630px" }}
-      ></div>
-      <Script
-        src="https://assets.calendly.com/assets/external/widget.js"
-        async
-      />
+            <div className="space-y-4">
+              <h3 className="font-mono text-xs uppercase tracking-widest text-accent">LinkedIn</h3>
+              <a
+                href="https://www.linkedin.com/in/saikalyanakunuri/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-2xl font-display text-foreground hover:text-accent transition-colors duration-300"
+              >
+                LinkedIn Profile
+              </a>
+            </div>
+          </div>
 
-      <div className="mt-12">
-        <Link href="/" className="text-muted-foreground hover:underline">
-          ← Back to Home
-        </Link>
+          <div className="pt-24 border-t border-divider flex flex-col gap-6 items-center md:items-start text-center md:text-left">
+            <h3 className="font-display text-3xl text-foreground">A conversation is better than a pitch.</h3>
+            <p className="text-muted-foreground font-serif">
+              I am currently writing and researching from Goa, India. I am generally responsive within 24-48 hours.
+            </p>
+          </div>
+          
+          <div className="pt-12">
+            <Link
+              href="/"
+              className="inline-block text-accent font-mono text-xs uppercase tracking-widest nav-link"
+            >
+              ← Back to Home
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

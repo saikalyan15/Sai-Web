@@ -1,5 +1,3 @@
-// app/blog/[slug]/page.tsx
-
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -12,24 +10,22 @@ export default async function BlogPostPage({
 }: {
   params: { slug: string };
 }) {
-  // Await params before accessing properties, as suggested by the error
-  const { slug } = await params; // Await params
+  const { slug } = await params;
 
   const postsDirectory = path.join(process.cwd(), "content/blog");
-  const filePath = path.join(postsDirectory, `${slug}.md`); // Use awaited slug
+  const filePath = path.join(postsDirectory, `${slug}.md`);
 
   let data: any = {};
   let contentHtml = "";
   let title = "";
   let date = "";
-  let featuredImage = null;
+  let excerpt = "";
 
   try {
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data: frontmatter, content } = matter(fileContents);
     data = frontmatter;
     title = data.title || "Untitled";
-    // Ensure data.date is treated as a string before creating a Date object
     const dateString = data.date ? data.date.toString() : "";
     date = dateString
       ? new Date(dateString).toLocaleDateString("en-US", {
@@ -38,44 +34,82 @@ export default async function BlogPostPage({
           day: "numeric",
         })
       : "No date";
-    featuredImage = data.featuredImage || null;
+    excerpt = data.description || data.excerpt || "";
 
     contentHtml = await markdownToHtml(content);
   } catch (error) {
-    console.error(`Error reading or processing blog post ${slug}:`, error); // Use awaited slug in error message
-    return <div>Error loading blog post.</div>;
+    console.error(`Error reading or processing blog post ${slug}:`, error);
+    return (
+      <div className="py-24 text-center">
+        <h1 className="text-2xl font-display">Post not found.</h1>
+        <Link href="/blog" className="text-accent font-mono text-xs uppercase mt-4 inline-block">Back to writing</Link>
+      </div>
+    );
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
-      {/* Back to blog link */}
-      <Link
-        href="/blog"
-        className="text-primary hover:underline mb-6 inline-block"
-      >
-        ← Back to blog
-      </Link>
+    <article className="py-24 md:py-32 bg-background grain min-h-screen">
+      <div className="max-w-[720px] mx-auto px-6">
+        <header className="space-y-8 mb-16">
+          <Link
+            href="/blog"
+            className="inline-block text-accent font-mono text-[10px] uppercase tracking-widest nav-link"
+          >
+            ← Back to writing
+          </Link>
+          
+          <div className="space-y-4">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+              {date}
+            </span>
+            <h1 className="text-4xl md:text-6xl font-display leading-tight text-foreground">
+              {title}
+            </h1>
+          </div>
 
-      <h1 className="text-3xl font-bold mb-4 text-foreground">{title}</h1>
-      <div className="text-sm text-muted-foreground mb-6">{date}</div>
+          {excerpt && (
+            <p className="text-xl md:text-2xl text-muted-foreground font-serif leading-relaxed italic border-l-2 border-accent/30 pl-6">
+              {excerpt}
+            </p>
+          )}
+        </header>
 
-      {/* Featured Image */}
-      {featuredImage && (
-        <div className="relative w-full h-64 md:h-80 lg:h-96 mb-6 rounded-lg overflow-hidden bg-muted">
-          <Image
-            src={featuredImage}
-            alt={`Featured image for ${title}`}
-            fill
-            className="object-contain"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
-          />
+        <div className="prose prose-invert prose-quoteless max-w-none 
+          prose-headings:font-display prose-headings:font-medium prose-headings:tracking-tight
+          prose-p:font-serif prose-p:text-lg prose-p:md:text-xl prose-p:leading-relaxed prose-p:text-muted-foreground
+          prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+          prose-strong:text-foreground prose-strong:font-semibold
+          prose-blockquote:border-accent prose-blockquote:bg-card/30 prose-blockquote:p-6 prose-blockquote:rounded-sm
+          prose-img:rounded-sm prose-img:border prose-img:border-divider
+          markdown-content-tables">
+          <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
         </div>
-      )}
 
-      {/* Blog Content */}
-      <div className="prose lg:prose-lg mx-auto dark:prose-invert markdown-content-tables">
-        <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+        <footer className="mt-24 pt-12 border-t border-divider">
+          <div className="flex flex-col gap-8">
+            <div className="space-y-4">
+              <h3 className="font-display text-2xl text-foreground">Thanks for reading.</h3>
+              <p className="text-muted-foreground font-serif">
+                I write about the intersection of engineering and ethics. If you found this useful, consider sharing it or reaching out.
+              </p>
+            </div>
+            <div className="flex gap-6">
+              <Link
+                href="/contact"
+                className="inline-block px-8 py-3 border border-accent text-accent font-mono text-xs uppercase tracking-widest hover:bg-accent hover:text-background transition-all duration-300"
+              >
+                Contact me
+              </Link>
+              <Link
+                href="/blog"
+                className="inline-block px-8 py-3 text-muted-foreground font-mono text-xs uppercase tracking-widest hover:text-accent transition-all duration-300"
+              >
+                All writing
+              </Link>
+            </div>
+          </div>
+        </footer>
       </div>
-    </div>
+    </article>
   );
 }

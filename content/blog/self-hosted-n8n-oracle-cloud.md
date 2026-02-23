@@ -1,4 +1,5 @@
 ---
+category: automation
 title: "How I Self-Hosted n8n on Oracle Cloud with Custom Subdomain & HTTPS"
 date: "2025-06-09"
 slug: "self-hosted-n8n-oracle-cloud"

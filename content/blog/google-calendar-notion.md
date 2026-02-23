@@ -1,4 +1,5 @@
 ---
+category: automation
 title: "How I Integrated Calendly with Notion and n8n for Smarter Booking Workflows"
 slug: calendly-notion-n8n-workflow
 excerpt: "A practical guide on building an automated booking and notes system using Calendly, Notion, and n8n — perfect for freelancers and consultants."

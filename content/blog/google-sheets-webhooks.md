@@ -1,4 +1,5 @@
 ---
+category: automation
 title: "Reducing Manual Data Entry with Google Sheets + Webhooks"
 date: "2024-06-02"
 slug: "google-sheets-webhooks"

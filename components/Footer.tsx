@@ -1,83 +1,50 @@
 import Link from "next/link";
-import { Linkedin, Github, Mail } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-background py-12 mt-16">
-      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="col-span-1 md:col-span-1 text-center md:text-left">
-          <h3 className="text-lg font-bold text-foreground mb-4">
-            Saikalyan Akunuri
-          </h3>
-          <p className="text-muted-foreground text-sm">
-            Helping businesses automate smarter with n8n and open-source
-            solutions.
-          </p>
-        </div>
+    <footer className="bg-background py-20 border-t border-divider grain">
+      <div className="max-w-[720px] lg:max-w-screen-xl mx-auto px-6 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6">
+            <h3 className="font-display text-2xl text-foreground font-medium">
+              Saikalyan Akunuri
+            </h3>
+            <p className="text-muted-foreground font-serif leading-relaxed max-w-sm">
+              Writing honestly about Responsible AI from 30 years in the engineering trenches.
+            </p>
+          </div>
 
-        <div className="col-span-1 md:col-span-1 text-center">
-          <h3 className="text-lg font-bold text-foreground mb-4">
-            Quick Links
-          </h3>
-          <nav className="flex flex-row justify-center space-x-4">
-            <Link
-              href="/"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              href="/services"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Services
-            </Link>
-            <Link
-              href="/blog"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Blog
-            </Link>
-            <Link
-              href="/contact"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Contact
-            </Link>
-          </nav>
-        </div>
+          <div className="flex flex-col md:items-end space-y-8">
+            <div className="flex flex-wrap gap-x-8 gap-y-4 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              <Link href="/" className="hover:text-accent transition-colors">Home</Link>
+              <Link href="/about" className="hover:text-accent transition-colors">About</Link>
+              <Link href="/blog" className="hover:text-accent transition-colors">Writing</Link>
+              <Link href="/contact" className="hover:text-accent transition-colors">Contact</Link>
+            </div>
 
-        <div className="col-span-1 md:col-span-1 text-center md:text-right">
-          <h3 className="text-lg font-bold text-foreground mb-4">Connect</h3>
-          <div className="flex justify-center md:justify-end space-x-4">
-            <a
-              href="mailto:sai@saikalyanakunuri.com"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Email"
-            >
-              <Mail className="h-6 w-6" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/saikalyanakunuri/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-6 w-6" />
-            </a>
+            <div className="flex space-x-6">
+              <a
+                href="https://www.linkedin.com/in/saikalyanakunuri/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-accent transition-colors duration-300"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-6 w-6" />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="mt-8 text-center text-muted-foreground text-sm">
-        © {new Date().getFullYear()} Saikalyan Akunuri. All rights reserved.
+        <div className="mt-20 pt-8 border-t border-divider flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+            © {new Date().getFullYear()} Saikalyan Akunuri. All rights reserved.
+          </p>
+          <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+            Built for the long term
+          </p>
+        </div>
       </div>
     </footer>
   );

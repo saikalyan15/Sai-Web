@@ -1,89 +1,66 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Lightbulb, Cog, Github, Feather } from "lucide-react";
-import { Badge } from "@/components/ui/badge"; // Assuming Badge component path
-import { Button } from "@/components/ui/button"; // Assuming Button component path
 
 export default function AboutPage() {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16 bg-background">
-      <div className="bg-card rounded-lg p-8 shadow-lg">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          {/* Left Column: Image */}
-          <div className="flex justify-center md:justify-end">
+    <article className="py-24 md:py-32 bg-background grain">
+      <div className="max-w-[720px] mx-auto px-6">
+        <div className="space-y-12">
+          <header className="space-y-4">
+            <span className="font-mono text-xs uppercase tracking-widest text-accent">
+              The Long Story
+            </span>
+            <h1 className="text-4xl md:text-6xl font-display leading-tight text-foreground">
+              Thirty years in the trenches.
+            </h1>
+          </header>
+
+          <div className="relative aspect-video w-full overflow-hidden rounded-sm grayscale border border-divider">
             <Image
               src="/Sai.jpg"
-              alt="Saikalyan Akunuri headshot"
-              width={250} // Slightly increased size for two-column layout
-              height={250}
-              className="rounded-lg shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl object-cover mb-6 md:mb-0"
+              alt="Saikalyan Akunuri"
+              fill
+              className="object-cover"
             />
           </div>
 
-          {/* Right Column: Text Content */}
-          <div className="text-center md:text-left">
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              About Me
-            </h1>
-            <p className="text-muted-foreground text-base md:text-lg mb-6">
-              I'm Saikalyan Akunuri, an automation consultant focused on
-              building practical, open-source workflows using n8n. I help
-              founders and teams save time, reduce repetitive work, and create
-              scalable systems with clarity. With decades of experience in
-              technology, I'm now focused on clean, intentional tech that
-              empowers people — not overwhelms them.
+          <div className="space-y-8 text-lg md:text-xl text-muted-foreground font-serif leading-relaxed">
+            <p>
+              I spent three decades building and managing software teams across geographies. I have seen the industry move from monoliths to microservices, from waterfall to agile, and now from manual coding to AI-assisted development.
             </p>
-
-            {/* Personal Quote */}
-            <p className="italic text-muted-foreground font-serif mb-6">
-              &ldquo;Automation done right empowers people to focus on what
-              truly matters.&rdquo;
+            <p>
+              Through all these shifts, one thing remained constant: the gap between what management thinks is happening and what the engineers are actually doing.
             </p>
+            <p>
+              Frameworks and policies fail not because they are inherently wrong, but because they are often written for an idealized version of software engineering that doesn't exist in reality. AI governance is currently making the same mistake. 
+            </p>
+            <p>
+              While boardrooms discuss high-level ethics and governance, developers are already pointing AI at production codebases. The real "Responsible AI" happens in the IDE, in the pull requests, and in the architectural decisions made at 2 AM.
+            </p>
+            <p>
+              I now live on a farm in Goa, India. The slow pace of life here has given me the perspective to look back at 30 years of shipping software and see the patterns that repeat. I write about these patterns, and how we can build AI systems that are actually responsible to the people building them.
+            </p>
+          </div>
 
-            {/* What I Value Section with Badges */}
-            <div className="mt-4 space-y-2">
-              <h3 className="text-lg font-semibold text-foreground">
-                What I value
-              </h3>
-              <div className="mt-2 flex flex-wrap gap-2">
-                <Badge
-                  variant="outline"
-                  className="border-blue-500 text-blue-500"
-                >
-                  <Lightbulb className="w-4 h-4 mr-1" /> Clarity
-                </Badge>
-                <Badge
-                  variant="outline"
-                  className="border-green-500 text-green-500"
-                >
-                  <Cog className="w-4 h-4 mr-1" /> Intentional Tech
-                </Badge>
-                <Badge
-                  variant="outline"
-                  className="border-purple-500 text-purple-500"
-                >
-                  <Github className="w-4 h-4 mr-1" /> Open Source
-                </Badge>
-                <Badge
-                  variant="outline"
-                  className="border-yellow-500 text-yellow-500"
-                >
-                  <Feather className="w-4 h-4 mr-1" /> Simplicity
-                </Badge>
-              </div>
-            </div>
-
-            {/* CTA Button */}
-            <div className="mt-6">
-              <Link href="/contact">
-                <Button size="lg" className="w-full sm:w-auto">
-                  Let's Work Together
-                </Button>
+          <div className="pt-12 border-t border-divider">
+            <h2 className="font-display text-2xl text-foreground mb-6">Let's talk.</h2>
+            <div className="flex flex-col sm:flex-row gap-6">
+              <Link
+                href="/contact"
+                className="inline-block px-8 py-3 border border-accent text-accent font-mono text-xs uppercase tracking-widest hover:bg-accent hover:text-background transition-all duration-300"
+              >
+                Contact me
+              </Link>
+              <Link
+                href="/blog"
+                className="inline-block px-8 py-3 text-muted-foreground font-mono text-xs uppercase tracking-widest hover:text-accent transition-all duration-300"
+              >
+                Read my writing
               </Link>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </article>
   );
 }

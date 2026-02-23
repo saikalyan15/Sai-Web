@@ -1,90 +1,91 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 
 export function Navbar() {
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Writing", href: "/blog" },
+    { label: "Contact", href: "/contact" },
+  ];
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="max-w-5xl mx-auto px-4 w-full">
-        <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="font-bold text-xl">
-            Saikalyan Akunuri
-          </Link>
-          <nav className="hidden md:flex items-center gap-6">
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled
+          ? "bg-background border-b border-border py-3"
+          : "bg-transparent py-5"
+      }`}
+    >
+      <div className="max-w-[720px] lg:max-w-screen-xl mx-auto px-6 w-full flex items-center justify-between">
+        <Link
+          href="/"
+          className="font-display text-xl font-medium tracking-tight text-foreground"
+        >
+          Saikalyan Akunuri
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
             <Link
-              href="/"
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                pathname === "/"
-                  ? "font-semibold text-foreground underline"
-                  : "text-muted-foreground"
-              }`}
+              key={link.href}
+              href={link.href}
+              className={`nav-link text-sm font-mono uppercase tracking-widest ${
+                pathname === link.href ? "text-accent" : "text-muted-foreground"
+              } hover:text-foreground`}
             >
-              Home
+              {link.label}
             </Link>
-            <Link
-              href="/about"
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                pathname === "/about"
-                  ? "font-semibold text-foreground underline"
-                  : "text-muted-foreground"
-              }`}
-            >
-              About
-            </Link>
-            <Link
-              href="/services"
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                pathname === "/services"
-                  ? "font-semibold text-foreground underline"
-                  : "text-muted-foreground"
-              }`}
-            >
-              Services
-            </Link>
-            <Link
-              href="/blog"
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                pathname === "/blog"
-                  ? "font-semibold text-foreground underline"
-                  : "text-muted-foreground"
-              }`}
-            >
-              Blog
-            </Link>
-            <Link
-              href="/contact"
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                pathname === "/contact"
-                  ? "font-semibold text-foreground underline"
-                  : "text-muted-foreground"
-              }`}
-            >
-              Contact
-            </Link>
-          </nav>
-          <Button variant="outline" size="sm" className="md:hidden">
-            <span className="sr-only">Toggle menu</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-4 w-4"
-            >
-              <line x1="4" x2="20" y1="12" y2="12" />
-              <line x1="4" x2="20" y1="6" y2="6" />
-              <line x1="4" x2="20" y1="18" y2="18" />
-            </svg>
-          </Button>
-        </div>
+          ))}
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-foreground"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
+        </button>
       </div>
+
+      {/* Mobile Navigation */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border p-6 flex flex-col gap-6 animate-fade-in-up">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-lg font-display ${
+                pathname === link.href ? "text-accent" : "text-foreground"
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 }
