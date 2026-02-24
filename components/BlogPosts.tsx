@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
+import Image from "next/image";
 
 // Helper function to strip Markdown and truncate text
 function getPlainTextExcerpt(markdownText: string, maxLength = 120): string {
@@ -46,6 +47,7 @@ function getBlogPosts() {
       }),
       slug: filename.replace(/\.md$/, ""),
       excerpt: getPlainTextExcerpt(rawExcerpt),
+      featuredImage: data.featuredImage || null,
     };
   });
 
@@ -82,6 +84,16 @@ export function BlogPosts() {
                 className="block group transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="space-y-4 border-l-0 hover:border-l-[1px] hover:border-accent pl-0 hover:pl-6 transition-all duration-300">
+                  {post.featuredImage && (
+                    <div className="relative aspect-video w-full mb-6 overflow-hidden rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700 border border-divider">
+                      <Image
+                        src={post.featuredImage}
+                        alt={post.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
                   <div className="flex items-center gap-4">
                     <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
                       {post.date}

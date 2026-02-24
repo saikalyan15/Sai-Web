@@ -20,6 +20,7 @@ export default async function BlogPostPage({
   let title = "";
   let date = "";
   let excerpt = "";
+  let featuredImage = "";
 
   try {
     const fileContents = fs.readFileSync(filePath, "utf8");
@@ -35,6 +36,7 @@ export default async function BlogPostPage({
         })
       : "No date";
     excerpt = data.description || data.excerpt || "";
+    featuredImage = data.featuredImage || "";
 
     contentHtml = await markdownToHtml(content);
   } catch (error) {
@@ -73,6 +75,18 @@ export default async function BlogPostPage({
             </p>
           )}
         </header>
+
+        {featuredImage && (
+          <div className="relative aspect-video w-full mb-16 overflow-hidden rounded-sm grayscale hover:grayscale-0 transition-all duration-700 border border-divider">
+            <Image
+              src={featuredImage}
+              alt={title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        )}
 
         <div className="prose prose-invert prose-quoteless max-w-none 
           prose-headings:font-display prose-headings:font-medium prose-headings:tracking-tight
