@@ -26,6 +26,11 @@ export default async function BlogPostPage({
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data: frontmatter, content } = matter(fileContents);
     data = frontmatter;
+
+    if (data.draft === true) {
+      throw new Error("This post is a draft.");
+    }
+
     title = data.title || "Untitled";
     const dateString = data.date ? data.date.toString() : "";
     date = dateString

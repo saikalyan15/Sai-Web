@@ -48,6 +48,7 @@ function getBlogPosts() {
       slug: filename.replace(/\.md$/, ""),
       excerpt: getPlainTextExcerpt(rawExcerpt),
       featuredImage: data.featuredImage || null,
+      draft: data.draft === true,
     };
   });
 
@@ -58,8 +59,10 @@ function getBlogPosts() {
 
 export function BlogPosts() {
   const allPosts = getBlogPosts();
-  // Filter for responsible-ai category only
-  const posts = allPosts.filter(post => post.category === "responsible-ai").slice(0, 4);
+  // Filter for responsible-ai category only and exclude drafts
+  const posts = allPosts
+    .filter((post) => !post.draft && post.category === "responsible-ai")
+    .slice(0, 4);
 
   return (
     <section className="py-24 md:py-32 bg-background grain">
