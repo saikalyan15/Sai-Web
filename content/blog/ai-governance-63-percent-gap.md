@@ -5,7 +5,7 @@ date: "2026-03-05"
 slug: "ai-governance-63-percent-gap"
 excerpt: "I spent a week reading Google, Microsoft, and IBM's Responsible AI reports. I got lost. Not because I am not technical. Because these documents are not written for people like me."
 featuredImage: "/images/blog/ai-governance-gap.jpg"
-draft: true
+draft: false
 ---
 
 I spent this week reading Google, Microsoft, and IBM's Responsible AI reports.

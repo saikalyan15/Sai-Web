@@ -25,9 +25,12 @@ function getPlainTextExcerpt(markdownText: string, maxLength = 120): string {
   return plainText;
 }
 
+export const revalidate = 3600; // revalidate every hour
+
 function getBlogPosts() {
   const postsDirectory = path.join(process.cwd(), "content/blog");
   const filenames = fs.readdirSync(postsDirectory);
+  const now = new Date();
 
   const posts = filenames.map((filename) => {
     const filePath = path.join(postsDirectory, filename);
@@ -40,7 +43,8 @@ function getBlogPosts() {
     return {
       title: data.title,
       category: data.category || "automation",
-      date: new Date(data.date).toLocaleDateString("en-US", {
+      date: data.date, // Keep raw date for comparison
+      displayDate: new Date(data.date).toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -52,15 +56,20 @@ function getBlogPosts() {
     };
   });
 
-  posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  // Sort and filter for live posts
+  // Comparison using ISO strings (YYYY-MM-DD) is reliable for these dates
+  const today = new Date().toISOString().split("T")[0];
 
-  return posts;
+  return posts
+    .filter((post) => {
+      const postDateStr = new Date(post.date).toISOString().split("T")[0];
+      return !post.draft && postDateStr <= today;
+    })
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export default function BlogPage() {
-  const allPosts = getBlogPosts();
-  // Filter out drafts and only show responsible-ai posts in the list
-  const posts = allPosts.filter(post => !post.draft && post.category === "responsible-ai");
+  const posts = getBlogPosts().filter(post => post.category === "responsible-ai");
 
   return (
     <section className="py-24 md:py-32 bg-background grain min-h-screen">
@@ -100,7 +109,7 @@ export default function BlogPage() {
                   )}
                   <div className="flex items-center gap-4">
                     <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
-                      {post.date}
+                      {post.displayDate}
                     </span>
                     <span className="font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 border border-accent/20 text-accent/70">
                       {post.category.replace("-", " ")}

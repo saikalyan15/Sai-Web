@@ -5,7 +5,7 @@ date: "2026-03-02"
 slug: "ai-governance-metrics-compliance-log"
 excerpt: "The EU AI Act tells you to log human interventions. It does not tell you what three interventions in a week means. That definition is yours to make."
 featuredImage: "/images/blog/ai-governance-metrics.jpg"
-draft: true
+draft: false
 ---
 
 At one of my previous companies we had a daily management board.

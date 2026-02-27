@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import markdownToHtml from "@/lib/markdownToHtml";
 
+export const revalidate = 3600; // revalidate every hour
+
 export default async function BlogPostPage({
   params,
 }: {
@@ -27,8 +29,11 @@ export default async function BlogPostPage({
     const { data: frontmatter, content } = matter(fileContents);
     data = frontmatter;
 
-    if (data.draft === true) {
-      throw new Error("This post is a draft.");
+    const postDateStr = new Date(data.date).toISOString().split("T")[0];
+    const today = new Date().toISOString().split("T")[0];
+
+    if (data.draft === true || postDateStr > today) {
+      throw new Error("This post is not available.");
     }
 
     title = data.title || "Untitled";

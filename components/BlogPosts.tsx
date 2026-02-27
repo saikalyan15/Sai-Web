@@ -28,6 +28,7 @@ function getPlainTextExcerpt(markdownText: string, maxLength = 120): string {
 function getBlogPosts() {
   const postsDirectory = path.join(process.cwd(), "content/blog");
   const filenames = fs.readdirSync(postsDirectory);
+  const today = new Date().toISOString().split("T")[0];
 
   const posts = filenames.map((filename) => {
     const filePath = path.join(postsDirectory, filename);
@@ -40,6 +41,7 @@ function getBlogPosts() {
     return {
       title: data.title,
       category: data.category || "automation",
+      rawDate: data.date,
       date: new Date(data.date).toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
@@ -52,16 +54,17 @@ function getBlogPosts() {
     };
   });
 
-  posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
-  return posts;
+  return posts
+    .filter((post) => {
+      const postDateStr = new Date(post.rawDate).toISOString().split("T")[0];
+      return !post.draft && postDateStr <= today;
+    })
+    .sort((a, b) => new Date(b.rawDate).getTime() - new Date(a.rawDate).getTime());
 }
 
 export function BlogPosts() {
-  const allPosts = getBlogPosts();
-  // Filter for responsible-ai category only and exclude drafts
-  const posts = allPosts
-    .filter((post) => !post.draft && post.category === "responsible-ai")
+  const posts = getBlogPosts()
+    .filter((post) => post.category === "responsible-ai")
     .slice(0, 4);
 
   return (
