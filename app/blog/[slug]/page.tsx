@@ -29,7 +29,14 @@ export default async function BlogPostPage({
     const { data: frontmatter, content } = matter(fileContents);
     data = frontmatter;
 
-    const postDateStr = new Date(data.date).toISOString().split("T")[0];
+    const postDate = data.date ? new Date(data.date) : null;
+    const isValidDate = postDate && !isNaN(postDate.getTime());
+
+    if (!isValidDate) {
+      throw new Error("Invalid date for this post.");
+    }
+
+    const postDateStr = postDate.toISOString().split("T")[0];
     const today = new Date().toISOString().split("T")[0];
 
     if (data.draft === true || postDateStr > today) {
@@ -37,14 +44,11 @@ export default async function BlogPostPage({
     }
 
     title = data.title || "Untitled";
-    const dateString = data.date ? data.date.toString() : "";
-    date = dateString
-      ? new Date(dateString).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })
-      : "No date";
+    date = postDate.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
     excerpt = data.description || data.excerpt || "";
     featuredImage = data.featuredImage || "";
 

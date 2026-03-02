@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const blogPostsDirectory = path.join(process.cwd(), "content/blog");
-  const blogPostFileNames = fs.readdirSync(blogPostsDirectory);
+  const blogPostFileNames = fs.readdirSync(blogPostsDirectory).filter(file => file.endsWith(".md"));
 
   const blogPostUrls = blogPostFileNames
     .map((fileName) => {
@@ -19,14 +19,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const fileContents = fs.readFileSync(filePath, "utf8");
       const { data } = matter(fileContents);
 
+      const postDate = data.date ? new Date(data.date) : null;
+      
+      if (!postDate || isNaN(postDate.getTime())) {
+        return null;
+      }
+
       return {
         slug,
-        date: new Date(data.date),
-        dateStr: new Date(data.date).toISOString().split("T")[0],
+        date: postDate,
+        dateStr: postDate.toISOString().split("T")[0],
         draft: data.draft === true,
       };
     })
-    .filter((post) => {
+    .filter((post): post is { slug: string; date: Date; dateStr: string; draft: boolean } => {
+      if (!post) return false;
       const today = new Date().toISOString().split("T")[0];
       return !post.draft && post.dateStr <= today;
     })

@@ -27,7 +27,7 @@ function getPlainTextExcerpt(markdownText: string, maxLength = 120): string {
 
 function getBlogPosts() {
   const postsDirectory = path.join(process.cwd(), "content/blog");
-  const filenames = fs.readdirSync(postsDirectory);
+  const filenames = fs.readdirSync(postsDirectory).filter(file => file.endsWith(".md"));
   const today = new Date().toISOString().split("T")[0];
 
   const posts = filenames.map((filename) => {
@@ -38,24 +38,29 @@ function getBlogPosts() {
     const rawExcerpt =
       excerpt || content || data.description || "No excerpt available.";
 
+    const postDate = data.date ? new Date(data.date) : null;
+    const isValidDate = postDate && !isNaN(postDate.getTime());
+
     return {
       title: data.title,
       category: data.category || "automation",
       rawDate: data.date,
-      date: new Date(data.date).toLocaleDateString("en-US", {
+      date: isValidDate ? postDate.toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
         day: "numeric",
-      }),
+      }) : "Unknown Date",
       slug: filename.replace(/\.md$/, ""),
       excerpt: getPlainTextExcerpt(rawExcerpt),
       featuredImage: data.featuredImage || null,
       draft: data.draft === true,
+      isValidDate
     };
   });
 
   return posts
     .filter((post) => {
+      if (!post.isValidDate) return false;
       const postDateStr = new Date(post.rawDate).toISOString().split("T")[0];
       return !post.draft && postDateStr <= today;
     })
