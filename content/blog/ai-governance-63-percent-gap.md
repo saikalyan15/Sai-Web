@@ -1,7 +1,7 @@
 ---
 category: responsible-ai
 title: "63% of Organisations Deploying AI Have No Governance. I Spent a Week Finding Out Why."
-date: "2026-03-05"
+date: "2026-03-04"
 slug: "ai-governance-63-percent-gap"
 excerpt: "I spent a week reading Google, Microsoft, and IBM's Responsible AI reports. I got lost. Not because I am not technical. Because these documents are not written for people like me."
 featuredImage: "/images/blog/ai-governance-gap.jpg"
