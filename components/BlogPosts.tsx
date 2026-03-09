@@ -40,10 +40,10 @@ function getBlogPosts() {
   const posts = filenames.map((filename) => {
     const filePath = path.join(postsDirectory, filename);
     const fileContents = fs.readFileSync(filePath, "utf8");
-    const { data, excerpt, content } = matter(fileContents, { excerpt: true });
+    const { data, content } = matter(fileContents);
 
     const rawExcerpt =
-      excerpt || content || data.description || "No excerpt available.";
+      data.excerpt || data.description || content || "No excerpt available.";
 
     const postDate = data.date ? new Date(data.date) : null;
     const isValidDate = postDate && !isNaN(postDate.getTime());
@@ -65,8 +65,11 @@ function getBlogPosts() {
     };
   });
 
+  const isDev = process.env.NODE_ENV === "development";
+
   return posts
     .filter((post) => {
+      if (isDev) return true; // Show everything in dev
       if (!post.isValidDate) return false;
       const postDateStr = new Date(post.rawDate).toISOString().split("T")[0];
       return !post.draft && postDateStr <= today;

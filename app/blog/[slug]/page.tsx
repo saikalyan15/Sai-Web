@@ -44,7 +44,9 @@ export default async function BlogPostPage({
       day: "2-digit",
     }).format(new Date());
 
-    if (data.draft === true || postDateStr > today) {
+    const isDev = process.env.NODE_ENV === "development";
+
+    if (!isDev && (data.draft === true || postDateStr > today)) {
       throw new Error("This post is not available.");
     }
 
