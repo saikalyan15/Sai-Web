@@ -34,7 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
     .filter((post): post is { slug: string; date: Date; dateStr: string; draft: boolean } => {
       if (!post) return false;
-      const today = new Date().toISOString().split("T")[0];
+      const today = new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Asia/Kolkata",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(new Date());
       return !post.draft && post.dateStr <= today;
     })
     .map((post) => ({

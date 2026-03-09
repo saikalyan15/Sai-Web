@@ -28,7 +28,14 @@ function getPlainTextExcerpt(markdownText: string, maxLength = 120): string {
 function getBlogPosts() {
   const postsDirectory = path.join(process.cwd(), "content/blog");
   const filenames = fs.readdirSync(postsDirectory).filter(file => file.endsWith(".md"));
-  const today = new Date().toISOString().split("T")[0];
+  
+  // Use Asia/Kolkata timezone for "today" to ensure posts go live at 00:00 IST
+  const today = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Kolkata",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
 
   const posts = filenames.map((filename) => {
     const filePath = path.join(postsDirectory, filename);

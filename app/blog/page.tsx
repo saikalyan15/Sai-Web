@@ -60,12 +60,18 @@ function getBlogPosts() {
   });
 
   // Sort and filter for live posts
-  // Comparison using ISO strings (YYYY-MM-DD) is reliable for these dates
-  const today = new Date().toISOString().split("T")[0];
+  // Use Asia/Kolkata timezone for "today" to ensure posts go live at 00:00 IST
+  const today = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Kolkata",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
 
   return posts
     .filter((post) => {
       if (!post.isValidDate) return false;
+      // Ensure we compare YYYY-MM-DD strings in UTC to avoid timezone shifts
       const postDateStr = new Date(post.date).toISOString().split("T")[0];
       return !post.draft && postDateStr <= today;
     })
