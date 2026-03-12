@@ -1,81 +1,6 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import Link from "next/link";
 import Image from "next/image";
-
-// Helper function to strip Markdown and truncate text
-function getPlainTextExcerpt(markdownText: string, maxLength = 120): string {
-  let plainText = markdownText
-    .replace(/\!\[.*?\]\(.*?\)/g, "")
-    .replace(/\[.*?\]\(.*?\)/g, "")
-    .replace(/\*\*(.*?)\*\*/g, "$1")
-    .replace(/\*(.*?)\*/g, "$1")
-    .replace(/`.*?`/g, "")
-    .replace(/^#{1,6}\s/m, "")
-    .replace(/^[-*+]\s/m, "")
-    .replace(/\n\n+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-
-  if (plainText.length > maxLength) {
-    plainText = plainText.substring(0, maxLength) + "...";
-  }
-
-  return plainText;
-}
-
-function getBlogPosts() {
-  const postsDirectory = path.join(process.cwd(), "content/blog");
-  const filenames = fs.readdirSync(postsDirectory).filter(file => file.endsWith(".md"));
-  
-  // Use Asia/Kolkata timezone for "today" to ensure posts go live at 00:00 IST
-  const today = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Kolkata",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(new Date());
-
-  const posts = filenames.map((filename) => {
-    const filePath = path.join(postsDirectory, filename);
-    const fileContents = fs.readFileSync(filePath, "utf8");
-    const { data, content } = matter(fileContents);
-
-    const rawExcerpt =
-      data.excerpt || data.description || content || "No excerpt available.";
-
-    const postDate = data.date ? new Date(data.date) : null;
-    const isValidDate = postDate && !isNaN(postDate.getTime());
-
-    return {
-      title: data.title,
-      category: data.category || "automation",
-      rawDate: data.date,
-      date: isValidDate ? postDate.toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      }) : "Unknown Date",
-      slug: filename.replace(/\.md$/, ""),
-      excerpt: getPlainTextExcerpt(rawExcerpt),
-      featuredImage: data.featuredImage || null,
-      draft: data.draft === true,
-      isValidDate
-    };
-  });
-
-  const isDev = process.env.NODE_ENV === "development";
-
-  return posts
-    .filter((post) => {
-      if (isDev) return true; // Show everything in dev
-      if (!post.isValidDate) return false;
-      const postDateStr = new Date(post.rawDate).toISOString().split("T")[0];
-      return !post.draft && postDateStr <= today;
-    })
-    .sort((a, b) => new Date(b.rawDate).getTime() - new Date(a.rawDate).getTime());
-}
+import { getBlogPosts } from "@/lib/blog";
 
 export function BlogPosts() {
   const posts = getBlogPosts()
@@ -117,7 +42,7 @@ export function BlogPosts() {
                   )}
                   <div className="flex items-center gap-4">
                     <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
-                      {post.date}
+                      {post.displayDate}
                     </span>
                     <span className="font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 border border-accent/20 text-accent/70">
                       {post.category.replace("-", " ")}

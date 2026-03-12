@@ -2,6 +2,8 @@ import { Hero } from "@/components/Hero";
 import { BlogPosts } from "@/components/BlogPosts";
 import { AboutMe } from "@/components/AboutMe";
 
+export const revalidate = 3600; // Update homepage every hour to sync blog posts
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
