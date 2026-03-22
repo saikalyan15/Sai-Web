@@ -1,6 +1,6 @@
 ---
 title: "Your AI Governance Dashboard is Lying to You"
-date: 2026-03-25
+date: 2026-03-24
 slug: ai-governance-dashboard-lying
 category: responsible-ai
 excerpt: "Most AI governance metrics are designed to report upward. Nobody is 
