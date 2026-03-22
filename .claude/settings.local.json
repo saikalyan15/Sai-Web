@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -h \"^date:\" e:/Websites/Sai-Web/content/blog/*.md)"
+    ]
+  }
+}
