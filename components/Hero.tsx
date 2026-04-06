@@ -19,7 +19,7 @@ export function Hero() {
             </div>
 
             <p className="text-lg md:text-xl text-muted-foreground font-serif leading-relaxed max-w-lg animate-fade-in-up delay-300 opacity-0">
-              30 years shipping software taught me how frameworks fail at the team level. Now I am watching AI governance make the same mistakes.
+              25+ years shipping software taught me how frameworks fail at the team level. Now I am watching AI governance make the same mistakes.
             </p>
 
             <div className="space-y-6 animate-fade-in-up delay-450 opacity-0">

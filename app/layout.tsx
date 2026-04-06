@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Saikalyan Akunuri - Responsible AI Writer and Practitioner",
   description:
-    "30 years in software engineering. Now writing about what Responsible AI actually means for the teams building AI systems, not the boardrooms governing them.",
+    "25+ years in software engineering. Now writing about what Responsible AI actually means for the teams building AI systems, not the boardrooms governing them.",
   keywords: [
     "Responsible AI",
     "software engineering",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Saikalyan Akunuri - Responsible AI Writer and Practitioner",
     description:
-      "30 years in software engineering. Now writing about what Responsible AI actually means for the teams building AI systems, not the boardrooms governing them.",
+      "25+ years in software engineering. Now writing about what Responsible AI actually means for the teams building AI systems, not the boardrooms governing them.",
     url: "https://www.saikalyanakunuri.com",
     siteName: "Saikalyan Akunuri",
     images: [
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Saikalyan Akunuri - Responsible AI Writer and Practitioner",
     description:
-      "30 years in software engineering. Now writing about what Responsible AI actually means for the teams building AI systems, not the boardrooms governing them.",
+      "25+ years in software engineering. Now writing about what Responsible AI actually means for the teams building AI systems, not the boardrooms governing them.",
     images: ["/og-image.jpg"],
   },
   robots: {

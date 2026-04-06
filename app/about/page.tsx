@@ -38,7 +38,7 @@ export default function AboutPage() {
               While boardrooms discuss high-level ethics and governance, developers are already pointing AI at production codebases. The real "Responsible AI" happens in the IDE, in the pull requests, and in the architectural decisions made at 2 AM.
             </p>
             <p>
-              I now live on a farm in Goa, India. The slow pace of life here has given me the perspective to look back at 30 years of shipping software and see the patterns that repeat. I write about these patterns, and how we can build AI systems that are actually responsible to the people building them.
+              I now live on a farm in Goa, India. The slow pace of life here has given me the perspective to look back at 25+ years of shipping software and see the patterns that repeat. I write about these patterns, and how we can build AI systems that are actually responsible to the people building them.
             </p>
           </div>
 

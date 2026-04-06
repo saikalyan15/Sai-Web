@@ -16,7 +16,7 @@ export function AboutMe() {
 
           <div className="space-y-6">
             <p className="text-lg md:text-xl text-muted-foreground font-serif leading-relaxed">
-              I spent 30 years building and managing software teams across geographies. I have seen frameworks fail not because they were wrong but because they were written for a world that does not match how teams actually work.
+              I spent 25+ years building and managing software teams across geographies. I have seen frameworks fail not because they were wrong but because they were written for a world that does not match how teams actually work.
             </p>
             <p className="text-lg md:text-xl text-muted-foreground font-serif leading-relaxed">
               AI governance is heading down the same path. I write about the gap between what the policy documents assume and what actually happens when developers point AI at a production codebase.

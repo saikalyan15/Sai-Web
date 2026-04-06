@@ -11,7 +11,7 @@ export function Footer() {
               Saikalyan Akunuri
             </h3>
             <p className="text-muted-foreground font-serif leading-relaxed max-w-sm">
-              Writing honestly about Responsible AI from 30 years in the engineering trenches.
+              Writing honestly about Responsible AI from 25+ years in the engineering trenches.
             </p>
           </div>
 

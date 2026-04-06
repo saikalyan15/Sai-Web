@@ -12,7 +12,7 @@ I spent this week reading Google, Microsoft, and IBM's Responsible AI reports.
 
 I got lost.
 
-Not because I am not technical. I spent 30 years building and managing software systems. I understand distributed architecture, compliance requirements, and organisational governance.
+Not because I am not technical. I spent 25+ years building and managing software systems. I understand distributed architecture, compliance requirements, and organisational governance.
 
 I got lost because these documents are not written for me. They are not written for the developer shipping AI features next sprint. They are not written for the engineering lead trying to explain AI risk to a non-technical board. They are written by policy teams for policy teams, regulators, and enterprise procurement checklists.
 
