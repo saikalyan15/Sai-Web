@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(grep -h \"^date:\" e:/Websites/Sai-Web/content/blog/*.md)"
+      "Bash(grep -h \"^date:\" e:/Websites/Sai-Web/content/blog/*.md)",
+      "Bash(ls e:/Websites/Sai-Web/public/images/blog/eval-harness*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:www.accountability.ai)"
     ]
   }
 }
