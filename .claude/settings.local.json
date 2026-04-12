@@ -6,7 +6,18 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:api.github.com)",
-      "WebFetch(domain:www.accountability.ai)"
+      "WebFetch(domain:www.accountability.ai)",
+      "Bash(grep -l \"category: responsible-ai\\\\|category: \\\\\"responsible-ai\\\\\"\" /e/Websites/Sai-Web/content/blog/*.md)",
+      "Bash([ -d \"/e/Projects/$proj/app\" ])",
+      "Bash([ -d \"/e/Projects/$proj/pages\" ])",
+      "Bash(find /e/Websites/deepa-web -name \"next-sitemap.config.js\" -exec cat {} \\\\;)",
+      "Bash(wc -l /e/Websites/Sai-Web/content/blog/*.md)",
+      "Bash(git checkout:*)",
+      "WebFetch(domain:api.vercel.com)",
+      "Bash(powershell -Command ':*)",
+      "Bash(git push:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
