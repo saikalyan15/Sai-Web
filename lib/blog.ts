@@ -63,7 +63,7 @@ export function getBlogPosts() {
 
     return {
       title: data.title || "Untitled",
-      category: data.category || "automation",
+      category: data.category || "responsible-ai",
       date: data.date, // ISO string or Date from matter
       displayDate: isValidDate ? postDate!.toLocaleDateString("en-US", {
         year: "numeric",

@@ -40,6 +40,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         month: "2-digit",
         day: "2-digit",
       }).format(new Date());
+      // All published posts (not drafts, not post-dated) should be in the sitemap 
+      // even if they are hidden from the UI category filters.
       return !post.draft && post.dateStr <= today;
     })
     .map((post) => ({
