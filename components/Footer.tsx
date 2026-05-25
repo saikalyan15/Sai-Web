@@ -22,7 +22,6 @@ export function Footer() {
               <Link href="/services" className="hover:text-accent transition-colors">Services</Link>
               <Link href="/work" className="hover:text-accent transition-colors">Work</Link>
               <Link href="/contact" className="hover:text-accent transition-colors">Contact</Link>
-              <Link href="/blog" className="hover:text-accent transition-colors">Writing</Link>
             </div>
 
             <div className="flex space-x-5">

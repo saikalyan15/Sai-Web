@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Work -- Saikalyan Akunuri",
+  title: "Work | Saikalyan Akunuri",
   description:
     "Healing Soil case study: full website, custom business operations app (SoapLedger), SEO strategy, and conversion funnel for a bootstrapped solo-founder business.",
 };
@@ -31,7 +31,7 @@ export default function WorkPage() {
               </h1>
             </div>
             <p className="text-xl text-muted-foreground font-sans leading-relaxed">
-              Healing Soil is a bootstrapped handmade soap business run by a solo founder. I came in as the technical and operations partner -- not a co-founder, but the person who built everything the business runs on so the founder could focus entirely on making the product.
+              Healing Soil is a bootstrapped handmade soap business run by a solo founder. I came in as the technical and operations partner. Not a co-founder, but the person who built everything the business runs on so the founder could focus entirely on making the product.
             </p>
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function WorkPage() {
                   <p>Customer research, VOC analysis, bundle pricing, referral funnel.</p>
                 </div>
                 <div className="border-l-2 border-accent pl-5 space-y-1">
-                  <p className="font-medium text-foreground">SoapLedger -- custom operations app</p>
+                  <p className="font-medium text-foreground">SoapLedger: custom operations app</p>
                   <p>Order management, customer records, expense tracking, inventory, label printing, and a growth analytics module that pulls Google Search Console data alongside order history to surface AI-generated content and SEO actions.</p>
                 </div>
               </div>
@@ -87,12 +87,13 @@ export default function WorkPage() {
             <div className="relative w-full aspect-[4/3] overflow-hidden border border-border shadow-sm">
               <Image
                 src="/soapledger-dashboard.png"
-                alt="SoapLedger dashboard -- business operations app for Healing Soil"
+                alt="SoapLedger dashboard, business operations app for Healing Soil"
                 fill
-                className="object-cover object-top"
+                className="object-cover"
+                style={{ objectPosition: '0% 8%' }}
               />
             </div>
-            <p className="text-xs text-muted-foreground font-sans">SoapLedger -- business operations dashboard built for Healing Soil</p>
+            <p className="text-xs text-muted-foreground font-sans">SoapLedger: business operations dashboard built for Healing Soil</p>
           </div>
         </div>
 

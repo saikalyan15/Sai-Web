@@ -27,7 +27,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Saikalyan Akunuri -- Fractional Programme Manager & Agile Coach",
+  title: "Saikalyan Akunuri | Fractional Programme Manager & Agile Coach",
   description:
     "Fractional Programme Manager and Agile Coach with 25 years in software engineering. Available for remote engagements with engineering organisations scaling Agile across multiple teams.",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "agile coach",
     "scrum of scrums",
     "PI planning",
-    "DBS agile",
+    "agile coach certification",
     "SAFe",
     "remote agile coaching",
     "software engineering leadership",
@@ -45,28 +45,19 @@ export const metadata: Metadata = {
   publisher: "Saikalyan Akunuri",
   metadataBase: new URL("https://www.saikalyanakunuri.com"),
   openGraph: {
-    title: "Saikalyan Akunuri -- Fractional Programme Manager & Agile Coach",
+    title: "Saikalyan Akunuri | Fractional Programme Manager & Agile Coach",
     description:
       "Fractional Programme Manager and Agile Coach with 25 years in software engineering. Available for remote engagements with engineering organisations scaling Agile across multiple teams.",
     url: "https://www.saikalyanakunuri.com",
     siteName: "Saikalyan Akunuri",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Saikalyan Akunuri",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saikalyan Akunuri -- Fractional Programme Manager & Agile Coach",
+    title: "Saikalyan Akunuri | Fractional Programme Manager & Agile Coach",
     description:
       "Fractional Programme Manager and Agile Coach with 25 years in software engineering. Available for remote engagements with engineering organisations scaling Agile across multiple teams.",
-    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,

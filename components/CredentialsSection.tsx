@@ -1,7 +1,7 @@
 const credentials = [
   {
-    label: "DBS Agile Coach",
-    detail: "Danaher Business System -- hands-on certification, not a classroom exam",
+    label: "Agile Coach Certification",
+    detail: "Earned at Hach (Danaher). Hands-on, results-verified. Not a classroom exam.",
   },
   {
     label: "SAFe Agilist (SA)",

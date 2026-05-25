@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "About -- Saikalyan Akunuri",
+  title: "About | Saikalyan Akunuri",
   description:
     "25 years building software and running engineering programmes. Fractional Programme Manager and Agile Coach, available for remote engagements.",
 };
@@ -69,7 +69,7 @@ export default function AboutPage() {
                 &ldquo;It is not a classroom exam.&rdquo;
               </p>
               <p className="text-sm text-muted-foreground font-sans mt-3">
-                I am a certified DBS Agile Coach -- Danaher&apos;s hands-on coaching certification. To get it, a coach observed me facilitate actual Kaizens, sustained the results, and verified the teams were still running on their own three months later.
+                I hold an Agile coaching certification earned at Hach. To get it, a coach observed me facilitate actual Kaizens, sustained the results, and verified the teams were still running on their own three months later. It is not a classroom exam.
               </p>
             </blockquote>
 
