@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getBlogPosts } from "@/lib/blog";
 
-export const revalidate = 3600; // revalidate every hour
+export const revalidate = 3600;
 
 export default async function BlogPage({
   searchParams,
@@ -12,101 +12,87 @@ export default async function BlogPage({
   const { page } = await searchParams;
   const pageSize = 6;
   const currentPage = parseInt(page || "1");
-  const allPosts = getBlogPosts().filter(post => post.category === "responsible-ai");
-  
+  const allPosts = getBlogPosts();
+
   const totalPages = Math.ceil(allPosts.length / pageSize);
   const startIndex = (currentPage - 1) * pageSize;
   const posts = allPosts.slice(startIndex, startIndex + pageSize);
 
   return (
-    <section className="py-24 md:py-32 bg-background grain min-h-screen">
+    <section className="py-24 md:py-32 bg-background min-h-screen">
       <div className="max-w-[1000px] mx-auto px-6 w-full">
-        <header className="space-y-8 mb-20 text-center md:text-left max-w-[720px]">
-          <div className="space-y-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-accent">
-              The Archive
-            </span>
-            <h1 className="text-4xl md:text-6xl font-display leading-tight text-foreground">
-              Writing
-            </h1>
-          </div>
-          <p className="text-lg md:text-xl text-muted-foreground font-serif leading-relaxed">
-            Thoughts on Responsible AI, software engineering history, and the gap between policy and practice.
+        <header className="space-y-4 mb-16 max-w-[720px]">
+          <h1 className="text-4xl md:text-5xl font-display leading-tight text-foreground">
+            Writing
+          </h1>
+          <p className="text-lg text-muted-foreground font-sans leading-relaxed">
+            Articles on software delivery, Agile at scale, and technology operations.
           </p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-14">
           {posts.length > 0 ? (
             posts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="block group transition-all duration-300 transform hover:-translate-y-1"
+                className="block group"
               >
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {post.featuredImage && (
-                    <div className="relative aspect-[16/10] w-full mb-6 overflow-hidden rounded-sm grayscale group-hover:grayscale-0 transition-all duration-700 border border-divider">
+                    <div className="relative aspect-[16/10] w-full mb-5 overflow-hidden border border-border">
                       <Image
                         src={post.featuredImage}
                         alt={post.title}
                         fill
-                        className="object-cover"
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                       />
                     </div>
                   )}
-                  <div className="flex items-center gap-4">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
-                      {post.displayDate}
-                    </span>
-                    <span className="font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 border border-accent/20 text-accent/70">
-                      {post.category.replace("-", " ")}
-                    </span>
-                  </div>
-                  <h2 className="text-2xl font-display text-foreground group-hover:text-accent transition-colors duration-300 leading-snug">
+                  <span className="font-sans text-xs text-muted-foreground">
+                    {post.displayDate}
+                  </span>
+                  <h2 className="text-xl font-display text-foreground group-hover:text-accent transition-colors duration-200 leading-snug">
                     {post.title}
                   </h2>
-                  <p className="text-base text-muted-foreground font-serif leading-relaxed line-clamp-3">
+                  <p className="text-sm text-muted-foreground font-sans leading-relaxed line-clamp-3">
                     {post.excerpt}
                   </p>
-                  <div className="pt-2">
-                    <span className="inline-block text-accent font-mono text-[10px] uppercase tracking-widest border-b border-accent/30 group-hover:border-accent pb-1 transition-all duration-300">
-                      Read article
-                    </span>
-                  </div>
+                  <span className="inline-block text-accent font-sans text-sm font-medium border-b border-accent/40 group-hover:border-accent pb-0.5 transition-colors duration-200">
+                    Read &rarr;
+                  </span>
                 </div>
               </Link>
             ))
           ) : (
-            <div className="col-span-full py-20 border border-accent/20 rounded-sm flex flex-col items-center justify-center space-y-4 bg-card/10">
-              <span className="font-mono text-xs uppercase tracking-[0.3em] text-accent/50">Essays</span>
-              <p className="text-2xl font-display text-muted-foreground italic">First essay coming soon</p>
-              <div className="h-px w-12 bg-accent/20"></div>
+            <div className="col-span-full py-20 border border-border flex flex-col items-center justify-center space-y-4">
+              <p className="text-xl font-display text-muted-foreground">No posts yet</p>
             </div>
           )}
         </div>
-        
+
         {totalPages > 1 && (
-          <div className="mt-24 flex items-center justify-center gap-8 border-t border-divider pt-12">
+          <div className="mt-20 flex items-center justify-center gap-6 border-t border-border pt-10">
             <Link
               href={`/blog?page=${Math.max(1, currentPage - 1)}`}
-              className={`font-mono text-xs uppercase tracking-widest transition-all duration-300 ${
-                currentPage === 1 
-                  ? "text-muted-foreground/30 pointer-events-none" 
+              className={`font-sans text-sm transition-colors duration-200 ${
+                currentPage === 1
+                  ? "text-muted-foreground/30 pointer-events-none"
                   : "text-accent hover:text-foreground"
               }`}
             >
-              ← Previous
+              &larr; Previous
             </Link>
-            
-            <div className="flex items-center gap-4">
+
+            <div className="flex items-center gap-3">
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
                 <Link
                   key={pageNum}
                   href={`/blog?page=${pageNum}`}
-                  className={`font-mono text-xs w-8 h-8 flex items-center justify-center rounded-sm transition-all duration-300 ${
+                  className={`font-sans text-sm w-8 h-8 flex items-center justify-center transition-colors duration-200 ${
                     currentPage === pageNum
-                      ? "bg-accent text-background"
-                      : "text-muted-foreground hover:text-accent border border-divider hover:border-accent/30"
+                      ? "bg-accent text-white"
+                      : "text-muted-foreground hover:text-accent border border-border"
                   }`}
                 >
                   {pageNum}
@@ -116,23 +102,23 @@ export default async function BlogPage({
 
             <Link
               href={`/blog?page=${Math.min(totalPages, currentPage + 1)}`}
-              className={`font-mono text-xs uppercase tracking-widest transition-all duration-300 ${
-                currentPage === totalPages 
-                  ? "text-muted-foreground/30 pointer-events-none" 
+              className={`font-sans text-sm transition-colors duration-200 ${
+                currentPage === totalPages
+                  ? "text-muted-foreground/30 pointer-events-none"
                   : "text-accent hover:text-foreground"
               }`}
             >
-              Next →
+              Next &rarr;
             </Link>
           </div>
         )}
-        
-        <div className="pt-24 border-t border-divider mt-24">
+
+        <div className="pt-16 border-t border-border mt-16">
           <Link
             href="/"
-            className="inline-block text-accent font-mono text-xs uppercase tracking-widest nav-link"
+            className="inline-block text-accent font-sans text-sm font-medium border-b border-accent/40 hover:border-accent transition-colors duration-200 pb-0.5"
           >
-            ← Back to Home
+            &larr; Back to home
           </Link>
         </div>
       </div>

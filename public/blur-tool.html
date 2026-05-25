@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard Image Blur Tool</title>
+<style>
+  body { font-family: sans-serif; padding: 24px; background: #f5f5f5; }
+  canvas { display: none; }
+  #preview { max-width: 100%; border: 1px solid #ddd; margin: 16px 0; display: none; }
+  button { padding: 10px 20px; background: #2d4e7a; color: white; border: none; cursor: pointer; font-size: 14px; margin-right: 8px; }
+  button:disabled { opacity: 0.5; }
+  p { color: #555; }
+</style>
+</head>
+<body>
+<h2>SoapLedger Dashboard -- Blur Numbers</h2>
+<p>This tool loads the existing dashboard image, blurs the number values, and lets you download the result. Save the downloaded file back to <code>public/soapledger-dashboard.png</code>.</p>
+
+<button id="loadBtn" onclick="loadAndBlur()">Load &amp; Blur Numbers</button>
+<button id="dlBtn" onclick="downloadBlurred()" disabled>Download Blurred PNG</button>
+
+<br><br>
+<img id="preview" alt="Preview" />
+<canvas id="canvas"></canvas>
+
+<script>
+const IMAGE_URL = '/soapledger-dashboard.png';
+
+// Regions to blur (x, y, width, height as fractions 0-1 of image dimensions)
+// These cover the KPI value areas in the main content column (right of sidebar)
+// Sidebar is ~14% of image width; adjust if image crop differs
+const BLUR_REGIONS = [
+  // Row 1: Revenue, Orders, Soaps Sold values
+  { x: 0.17, y: 0.24, w: 0.22, h: 0.09 },
+  { x: 0.41, y: 0.24, w: 0.22, h: 0.09 },
+  { x: 0.65, y: 0.24, w: 0.22, h: 0.09 },
+  // Row 2: Repeat Rate, Re-Order, Avg Order values
+  { x: 0.17, y: 0.44, w: 0.22, h: 0.09 },
+  { x: 0.41, y: 0.44, w: 0.22, h: 0.09 },
+  { x: 0.65, y: 0.44, w: 0.22, h: 0.09 },
+  // Row 3: Cost Price, Pending, Pending Qty values
+  { x: 0.17, y: 0.63, w: 0.22, h: 0.09 },
+  { x: 0.41, y: 0.63, w: 0.22, h: 0.09 },
+  { x: 0.65, y: 0.63, w: 0.22, h: 0.09 },
+  // Row 4: Total Expenses, Profit/Loss, Margin values
+  { x: 0.17, y: 0.82, w: 0.22, h: 0.09 },
+  { x: 0.41, y: 0.82, w: 0.22, h: 0.09 },
+  { x: 0.65, y: 0.82, w: 0.22, h: 0.09 },
+];
+
+let blurredDataURL = null;
+
+function loadAndBlur() {
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  img.onload = function() {
+    const canvas = document.getElementById('canvas');
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    const ctx = canvas.getContext('2d');
+
+    // Draw full image
+    ctx.drawImage(img, 0, 0);
+
+    // For each blur region, extract, blur, and redraw
+    BLUR_REGIONS.forEach(r => {
+      const rx = Math.round(r.x * canvas.width);
+      const ry = Math.round(r.y * canvas.height);
+      const rw = Math.round(r.w * canvas.width);
+      const rh = Math.round(r.h * canvas.height);
+
+      // Draw blurred overlay using temp canvas
+      const tmp = document.createElement('canvas');
+      tmp.width = rw;
+      tmp.height = rh;
+      const tc = tmp.getContext('2d');
+      tc.filter = 'blur(8px)';
+      tc.drawImage(canvas, rx, ry, rw, rh, 0, 0, rw, rh);
+
+      ctx.drawImage(tmp, rx, ry);
+    });
+
+    blurredDataURL = canvas.toDataURL('image/png');
+
+    // Show preview
+    const preview = document.getElementById('preview');
+    preview.src = blurredDataURL;
+    preview.style.display = 'block';
+    document.getElementById('dlBtn').disabled = false;
+    document.getElementById('loadBtn').textContent = 'Done! Numbers blurred.';
+  };
+  img.onerror = () => alert('Could not load image. Make sure soapledger-dashboard.png is in public/ and you are serving from localhost:3000/blur-tool.html');
+  img.src = IMAGE_URL + '?t=' + Date.now();
+}
+
+function downloadBlurred() {
+  if (!blurredDataURL) return;
+  const a = document.createElement('a');
+  a.download = 'soapledger-dashboard.png';
+  a.href = blurredDataURL;
+  a.click();
+}
+</script>
+</body>
+</html>

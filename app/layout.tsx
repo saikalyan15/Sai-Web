@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
-import { Playfair_Display, Source_Serif_4, JetBrains_Mono } from "next/font/google";
+import { Inter, Playfair_Display, Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
 const playfair = Playfair_Display({
   subsets: ["latin"],
+  weight: ["600", "700", "800", "900"],
   variable: "--font-playfair",
 });
 
@@ -21,25 +27,27 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Saikalyan Akunuri - Responsible AI Writer and Practitioner",
+  title: "Saikalyan Akunuri -- Fractional Programme Manager & Agile Coach",
   description:
-    "25+ years in software engineering. Now writing about what Responsible AI actually means for the teams building AI systems, not the boardrooms governing them.",
+    "Fractional Programme Manager and Agile Coach with 25 years in software engineering. Available for remote engagements with engineering organisations scaling Agile across multiple teams.",
   keywords: [
-    "Responsible AI",
-    "software engineering",
-    "AI governance",
-    "engineering ethics",
-    "tech writing",
-    "automation",
+    "fractional programme manager",
+    "agile coach",
+    "scrum of scrums",
+    "PI planning",
+    "DBS agile",
+    "SAFe",
+    "remote agile coaching",
+    "software engineering leadership",
   ],
   authors: [{ name: "Saikalyan Akunuri" }],
   creator: "Saikalyan Akunuri",
   publisher: "Saikalyan Akunuri",
   metadataBase: new URL("https://www.saikalyanakunuri.com"),
   openGraph: {
-    title: "Saikalyan Akunuri - Responsible AI Writer and Practitioner",
+    title: "Saikalyan Akunuri -- Fractional Programme Manager & Agile Coach",
     description:
-      "25+ years in software engineering. Now writing about what Responsible AI actually means for the teams building AI systems, not the boardrooms governing them.",
+      "Fractional Programme Manager and Agile Coach with 25 years in software engineering. Available for remote engagements with engineering organisations scaling Agile across multiple teams.",
     url: "https://www.saikalyanakunuri.com",
     siteName: "Saikalyan Akunuri",
     images: [
@@ -55,9 +63,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saikalyan Akunuri - Responsible AI Writer and Practitioner",
+    title: "Saikalyan Akunuri -- Fractional Programme Manager & Agile Coach",
     description:
-      "25+ years in software engineering. Now writing about what Responsible AI actually means for the teams building AI systems, not the boardrooms governing them.",
+      "Fractional Programme Manager and Agile Coach with 25 years in software engineering. Available for remote engagements with engineering organisations scaling Agile across multiple teams.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -74,12 +82,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${playfair.variable} ${sourceSerif.variable} ${jetbrainsMono.variable} font-serif flex flex-col min-h-screen antialiased`}
+        className={`${inter.variable} ${playfair.variable} ${sourceSerif.variable} ${jetbrainsMono.variable} font-sans flex flex-col min-h-screen antialiased`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          forcedTheme="dark"
+          defaultTheme="light"
+          forcedTheme="light"
           enableSystem={false}
           disableTransitionOnChange
         >

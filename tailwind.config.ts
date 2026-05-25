@@ -32,6 +32,7 @@ const config: Config = {
         },
       }),
       fontFamily: {
+        sans: ["var(--font-inter)", "sans-serif"],
         display: ["var(--font-playfair)", "serif"],
         serif: ["var(--font-source-serif)", "serif"],
         mono: ["var(--font-jetbrains-mono)", "monospace"],

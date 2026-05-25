@@ -3,51 +3,53 @@ import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[100vh] md:min-h-screen flex items-center overflow-hidden grain">
-      <div className="max-w-[720px] lg:max-w-screen-xl mx-auto px-6 w-full py-20 lg:py-0">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          {/* Content side */}
+    <section className="relative bg-background">
+      <div className="max-w-[720px] lg:max-w-screen-xl mx-auto px-6 w-full py-16 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
           <div className="flex flex-col space-y-8 order-2 lg:order-1">
-            <div className="space-y-4">
-              <span className="font-mono text-xs uppercase tracking-widest text-accent animate-fade-in-up opacity-0">
-                Saikalyan Akunuri
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-display leading-[1.1] animate-fade-in-up delay-150 opacity-0">
-                Responsible AI starts in the IDE, not the boardroom.
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-display leading-[1.1] text-foreground">
+                Engineering programmes run. Teams aligned. Delivery visible.
               </h1>
-              <div className="h-[2px] w-full max-w-[120px] bg-accent animate-fade-in-up delay-300 opacity-0"></div>
+              <p className="text-lg md:text-xl text-muted-foreground font-sans leading-relaxed max-w-lg">
+                Fractional Programme Manager and Agile Coach. 25 years in software engineering. Available for remote engagements.
+              </p>
+            </div>
+            {/* Credibility strip */}
+            <div className="flex flex-wrap gap-x-8 gap-y-3 border-t border-border pt-6">
+              <div>
+                <p className="text-xl font-display font-bold text-foreground">25 yrs</p>
+                <p className="text-xs text-muted-foreground font-sans uppercase tracking-widest mt-0.5">Software engineering</p>
+              </div>
+              <div>
+                <p className="text-xl font-display font-bold text-foreground">15+ teams</p>
+                <p className="text-xs text-muted-foreground font-sans uppercase tracking-widest mt-0.5">Hach / Danaher</p>
+              </div>
+              <div>
+                <p className="text-xl font-display font-bold text-foreground">4 countries</p>
+                <p className="text-xs text-muted-foreground font-sans uppercase tracking-widest mt-0.5">US, DE, CH, India</p>
+              </div>
             </div>
 
-            <p className="text-lg md:text-xl text-muted-foreground font-serif leading-relaxed max-w-lg animate-fade-in-up delay-300 opacity-0">
-              25+ years shipping software taught me how frameworks fail at the team level. Now I am watching AI governance make the same mistakes.
-            </p>
-
-            <div className="space-y-6 animate-fade-in-up delay-450 opacity-0">
-              <p className="font-mono text-xs uppercase tracking-widest text-accent">
-                Writing from the engineering trenches - Goa, India
-              </p>
+            <div>
               <Link
-                href="/blog"
-                className="inline-block px-8 py-3 border border-accent text-accent font-mono text-sm uppercase tracking-widest hover:bg-accent hover:text-background transition-all duration-300"
+                href="/contact"
+                className="inline-block px-8 py-3 bg-accent text-white font-sans text-sm font-medium tracking-wide hover:bg-accent/90 transition-colors duration-200"
               >
-                Read my writing
+                Get in touch
               </Link>
             </div>
           </div>
 
-          {/* Photo side */}
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-            <div className="relative w-[240px] h-[240px] md:w-[280px] md:h-[280px] animate-fade-in-up delay-600 opacity-0">
-              <div className="absolute inset-[-4px] rounded-full border border-accent opacity-50"></div>
-              <div className="absolute inset-0 rounded-full overflow-hidden border-2 border-accent">
-                <Image
-                  src="/Me-2025.jpg"
-                  alt="Saikalyan Akunuri"
-                  fill
-                  className="object-cover grayscale"
-                  priority
-                />
-              </div>
+            <div className="relative w-[280px] h-[340px] md:w-[340px] md:h-[420px] lg:w-[380px] lg:h-[460px]">
+              <Image
+                src="/Me-2025.jpg"
+                alt="Saikalyan Akunuri"
+                fill
+                className="object-cover grayscale"
+                priority
+              />
             </div>
           </div>
         </div>

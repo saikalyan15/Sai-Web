@@ -71,7 +71,7 @@ export default async function BlogPostPage({
   }
 
   return (
-    <article className="py-24 md:py-32 bg-background grain min-h-screen">
+    <article className="py-24 md:py-32 bg-background min-h-screen">
       <div className="max-w-[720px] mx-auto px-6">
         <header className="space-y-8 mb-16">
           <Link
@@ -109,13 +109,14 @@ export default async function BlogPostPage({
           </div>
         )}
 
-        <div className="prose prose-invert prose-quoteless max-w-none 
-          prose-headings:font-display prose-headings:font-medium prose-headings:tracking-tight
-          prose-p:font-serif prose-p:text-lg prose-p:md:text-xl prose-p:leading-relaxed prose-p:text-muted-foreground
+        <div className="prose prose-quoteless max-w-none
+          prose-headings:font-display prose-headings:font-medium prose-headings:tracking-tight prose-headings:text-foreground
+          prose-p:font-serif prose-p:text-lg prose-p:leading-relaxed prose-p:text-muted-foreground
           prose-a:text-accent prose-a:no-underline hover:prose-a:underline
           prose-strong:text-foreground prose-strong:font-semibold
-          prose-blockquote:border-accent prose-blockquote:bg-card/30 prose-blockquote:p-6 prose-blockquote:rounded-sm
-          prose-img:rounded-sm prose-img:border prose-img:border-divider
+          prose-blockquote:border-l-2 prose-blockquote:border-accent prose-blockquote:bg-secondary prose-blockquote:p-6
+          prose-img:border prose-img:border-border
+          prose-code:text-foreground prose-code:bg-secondary prose-code:px-1
           markdown-content-tables">
           <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
         </div>
@@ -124,20 +125,20 @@ export default async function BlogPostPage({
           <div className="flex flex-col gap-8">
             <div className="space-y-4">
               <h3 className="font-display text-2xl text-foreground">Thanks for reading.</h3>
-              <p className="text-muted-foreground font-serif">
-                I write about the intersection of engineering and ethics. If you found this useful, consider sharing it or reaching out.
+              <p className="text-muted-foreground font-sans">
+                If you found this useful, feel free to reach out.
               </p>
             </div>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap gap-5">
               <Link
                 href="/contact"
-                className="inline-block px-8 py-3 border border-accent text-accent font-mono text-xs uppercase tracking-widest hover:bg-accent hover:text-background transition-all duration-300"
+                className="inline-block px-8 py-3 bg-accent text-white font-sans text-sm font-medium hover:bg-accent/90 transition-colors duration-200"
               >
-                Contact me
+                Get in touch
               </Link>
               <Link
                 href="/blog"
-                className="inline-block px-8 py-3 text-muted-foreground font-mono text-xs uppercase tracking-widest hover:text-accent transition-all duration-300"
+                className="inline-block px-8 py-3 border border-border text-foreground font-sans text-sm font-medium hover:border-accent hover:text-accent transition-colors duration-200"
               >
                 All writing
               </Link>

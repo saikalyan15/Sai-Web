@@ -20,7 +20,8 @@ export function Navbar() {
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
-    { label: "Writing", href: "/blog" },
+    { label: "Services", href: "/services" },
+    { label: "Work", href: "/work" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -28,8 +29,8 @@ export function Navbar() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-background border-b border-border py-3"
-          : "bg-transparent py-5"
+          ? "bg-background border-b border-border py-3 shadow-sm"
+          : "bg-background/95 py-5"
       }`}
     >
       <div className="max-w-[720px] lg:max-w-screen-xl mx-auto px-6 w-full flex items-center justify-between">
@@ -40,22 +41,22 @@ export function Navbar() {
           Saikalyan Akunuri
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`nav-link text-sm font-mono uppercase tracking-widest ${
-                pathname === link.href ? "text-accent" : "text-muted-foreground"
-              } hover:text-foreground`}
+              className={`text-sm font-sans transition-colors duration-200 ${
+                pathname === link.href
+                  ? "text-accent font-medium"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-foreground"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -69,9 +70,8 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border p-6 flex flex-col gap-6 animate-fade-in-up">
+        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border p-6 flex flex-col gap-6 shadow-sm">
           {navLinks.map((link) => (
             <Link
               key={link.href}
