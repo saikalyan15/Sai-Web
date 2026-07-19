@@ -21,8 +21,8 @@ export function ProofSection() {
                 <p className="text-sm text-muted-foreground font-sans uppercase tracking-widest">Countries, one programme</p>
               </div>
               <div className="border-l-2 border-border pl-5 space-y-1">
-                <p className="text-4xl font-display font-bold text-foreground">8 yrs</p>
-                <p className="text-sm text-muted-foreground font-sans uppercase tracking-widest">Running the programme</p>
+                <p className="text-4xl font-display font-bold text-foreground">5→30+</p>
+                <p className="text-sm text-muted-foreground font-sans uppercase tracking-widest">Engineering group growth</p>
               </div>
             </div>
           </div>
@@ -36,7 +36,10 @@ export function ProofSection() {
               15+ Scrum teams. US, Germany, Switzerland, India. No shared timezone. No natural alignment. Leadership needed to know what was at risk at any given point.
             </p>
             <p>
-              I built the PMO infrastructure from scratch: Scrum of Scrums, PI Planning, Jira dashboards, dependency registers, risk tracking. Not as a one-off setup, but as a running system the programme operated on for years.
+              I developed the programme operating infrastructure: Scrum of Scrums, PI Planning, Jira dashboards, dependency registers, and risk tracking. Not as a one-off setup, but as a running system the programme operated on for years.
+            </p>
+            <p>
+              Alongside delivery coordination, I helped scale a multidisciplinary engineering group from 5 to 30+ through hiring across full-stack, mobile, and DevOps teams.
             </p>
             <p>
               That level of visibility does not happen by itself. It requires someone whose job it is to own the space between the teams. That is what I do.

@@ -34,7 +34,7 @@ export default function ServicesPage() {
                 </div>
                 <div className="space-y-1">
                   <div className="text-[3rem] font-display font-bold text-foreground leading-none">15+</div>
-                  <div className="text-xs font-sans uppercase tracking-widest text-muted-foreground">Scrum teams run at Hach / Danaher</div>
+                  <div className="text-xs font-sans uppercase tracking-widest text-muted-foreground">Scrum teams coordinated at Hach / Danaher</div>
                 </div>
                 <div className="space-y-3">
                   <h2 className="text-xl font-display text-foreground leading-snug group-hover:text-accent transition-colors duration-200">
@@ -65,7 +65,7 @@ export default function ServicesPage() {
               <div className="space-y-5">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-sans font-medium uppercase tracking-widest px-3 py-1 bg-foreground/5 text-foreground">
-                    5-day Kaizen + 3 months
+                    3-5 day Kaizen + 3 months
                   </span>
                   <span className="text-5xl font-display font-bold text-foreground/10 leading-none select-none">02</span>
                 </div>
@@ -81,13 +81,13 @@ export default function ServicesPage() {
                     A team doing standups without knowing why is not an Agile team. It is a team with overhead and no delivery rhythm.
                   </p>
                   <p className="text-sm text-muted-foreground font-sans leading-relaxed">
-                    A 5-day Kaizen to get the team sprint-ready, followed by 3 months of sustenance coaching. I facilitate the Kaizen, run the first sprint with the team, then return over three months to verify it is still working without me. The certification I hold required exactly that: demonstrated results, not a classroom exam.
+                    A 3-5 day Kaizen to get the team sprint-ready by Day 5, followed by 3 months of sustenance coaching. I facilitate the Kaizen, establish the delivery rhythm with the team, then return over three months to verify it is still working without me. The certification I hold required demonstrated results, not a classroom exam.
                   </p>
                 </div>
               </div>
               <div className="space-y-4">
                 <div className="flex flex-wrap gap-1.5 pt-4 border-t border-border">
-                  {["5-day Kaizen", "First sprint facilitation", "3-month coaching", "Hach-proven methodology", "Results verification"].map(item => (
+                  {["3-5 day Kaizen", "Sprint-ready by Day 5", "3-month coaching", "Hach-proven methodology", "Results verification"].map(item => (
                     <span key={item} className="text-xs font-sans px-2.5 py-1 border border-border text-muted-foreground bg-background">{item}</span>
                   ))}
                 </div>
@@ -135,7 +135,7 @@ export default function ServicesPage() {
                     Two to three days reviewing your ceremonies, tooling, team structures, and how information moves. I talk to the team leads and to whoever owns delivery at the leadership level. You leave with a ranked fix list: what to address first, why it matters, and what good looks like when it is done.
                   </p>
                   <p className="text-sm text-muted-foreground font-sans leading-relaxed">
-                    This is the right starting point if you know something is wrong but are not sure where to look. Many clients move to the PM retainer or a Kaizen after seeing the results.
+                    This is the right starting point if you know something is wrong but are not sure where to look. It creates the evidence needed to decide whether a PM retainer, Kaizen, or smaller targeted intervention is the right next step.
                   </p>
                 </div>
               </div>

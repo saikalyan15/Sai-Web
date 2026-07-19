@@ -43,7 +43,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <p className="text-2xl font-display font-bold text-foreground">3</p>
-                <p className="text-xs text-muted-foreground font-sans uppercase tracking-widest mt-0.5">Enterprise certifications</p>
+                <p className="text-xs text-muted-foreground font-sans uppercase tracking-widest mt-0.5">Historical enterprise certifications</p>
               </div>
             </div>
           </div>
@@ -56,11 +56,15 @@ export default function AboutPage() {
             </p>
 
             <p>
-              At Hach (Danaher), I ran a programme with 15+ Scrum teams spread across the US, Germany, Switzerland, and India. No shared timezone. No natural alignment. I built the PMO infrastructure, the Jira dashboards, the ceremonies, the metrics. At any given point I could tell leadership exactly where the programme stood: what was at risk, what was delayed, what needed a decision. That level of visibility does not happen by itself.
+              At Hach (Danaher), I coordinated delivery across 15+ Scrum teams spread across the US, Germany, Switzerland, and India. No shared timezone. No natural alignment. I developed the programme operating infrastructure: Scrum of Scrums, PI Planning, Jira dashboards, dependency tracking, risk registers, and delivery metrics. At any given point I could tell leadership exactly where the programme stood: what was at risk, what was delayed, and what needed a decision. That level of visibility does not happen by itself.
             </p>
 
             <p>
-              Before that I spent five years at Finastra as a Senior Architect in financial services, and seven years at Wipro leading cross-functional programmes across retail, manufacturing, and telecom.
+              I also helped scale a multidisciplinary engineering group from 5 to 30+ through hiring across full-stack, mobile, and DevOps teams, while leading delivery through influence rather than formal reporting lines.
+            </p>
+
+            <p>
+              Before that I spent five years at Finastra as a Senior Architect in financial services, and seven years at Wipro leading cross-functional programmes across retail, manufacturing, healthcare, and finance.
             </p>
 
             {/* Pull quote */}

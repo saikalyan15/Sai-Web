@@ -4,16 +4,24 @@ const credentials = [
     detail: "Earned at Hach (Danaher). Hands-on, results-verified. Not a classroom exam.",
   },
   {
+    label: "Engineering organisation growth",
+    detail: "Helped scale from 5 to 30+ through hiring across full-stack, mobile, and DevOps teams.",
+  },
+  {
+    label: "Architecture & automation",
+    detail: "Azure Service Fabric microservices, identity, IoT APIs, and CI/CD improvement.",
+  },
+  {
     label: "SAFe Agilist (SA)",
-    detail: "Scaled Agile",
+    detail: "Historical certification — no longer current.",
   },
   {
     label: "Microsoft Certified Azure Architect",
-    detail: "",
+    detail: "Historical certification — no longer current.",
   },
   {
     label: "TOGAF 8",
-    detail: "Enterprise Architecture",
+    detail: "Historical certification — no longer current. Enterprise architecture background.",
   },
   {
     label: "8 years at Hach (Danaher)",
@@ -37,6 +45,9 @@ export function CredentialsSection() {
           <h2 className="text-3xl md:text-4xl font-display text-foreground">
             Background
           </h2>
+          <p className="mt-4 max-w-2xl text-sm font-sans leading-relaxed text-muted-foreground">
+            Current delivery experience and historical certifications that shaped how I work.
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-16 max-w-[860px]">
           {credentials.map((cred) => (

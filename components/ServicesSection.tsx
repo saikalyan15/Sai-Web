@@ -10,8 +10,8 @@ const services = [
   {
     number: "02",
     title: "Agile Team Onboarding (Kaizen)",
-    tag: "5-day Kaizen + 3 months",
-    body: "A 5-day Kaizen to get a team sprint-ready, followed by 3 months of sustenance coaching. Tested across 15+ teams at Hach. I stay until it sticks.",
+    tag: "3-5 day Kaizen + 3 months",
+    body: "A 3-5 day Kaizen to get a team sprint-ready by Day 5, followed by 3 months of sustenance coaching. Used at Hach. I stay until it sticks.",
   },
   {
     number: "03",
