@@ -12,8 +12,8 @@ const credentials = [
     detail: "Azure Service Fabric microservices, identity, IoT APIs, and CI/CD improvement.",
   },
   {
-    label: "SAFe Agilist (SA)",
-    detail: "Certification renewal in progress.",
+    label: "SAFe Foundational (SA)",
+    detail: "Renewal available on request.",
   },
   {
     label: "Microsoft Certified Azure Architect",
