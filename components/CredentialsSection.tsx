@@ -1,6 +1,6 @@
 const credentials = [
   {
-    label: "Agile Coach Certification",
+    label: "DBS Agile Coach",
     detail: "Earned at Hach (Danaher). Hands-on, results-verified. Not a classroom exam.",
   },
   {
@@ -13,7 +13,7 @@ const credentials = [
   },
   {
     label: "SAFe Agilist (SA)",
-    detail: "Historical certification — no longer current.",
+    detail: "Certification renewal in progress.",
   },
   {
     label: "Microsoft Certified Azure Architect",
@@ -46,7 +46,7 @@ export function CredentialsSection() {
             Background
           </h2>
           <p className="mt-4 max-w-2xl text-sm font-sans leading-relaxed text-muted-foreground">
-            Current delivery experience and historical certifications that shaped how I work.
+            Delivery experience and certifications that shaped how I work.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-16 max-w-[860px]">

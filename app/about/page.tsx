@@ -43,7 +43,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <p className="text-2xl font-display font-bold text-foreground">3</p>
-                <p className="text-xs text-muted-foreground font-sans uppercase tracking-widest mt-0.5">Historical enterprise certifications</p>
+                <p className="text-xs text-muted-foreground font-sans uppercase tracking-widest mt-0.5">Enterprise certifications</p>
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@ export default function AboutPage() {
                 &ldquo;It is not a classroom exam.&rdquo;
               </p>
               <p className="text-sm text-muted-foreground font-sans mt-3">
-                I hold an Agile coaching certification earned at Hach. To get it, a coach observed me facilitate actual Kaizens, sustained the results, and verified the teams were still running on their own three months later. It is not a classroom exam.
+                I hold the DBS Agile Coach credential earned at Hach. To get it, a coach observed me facilitate actual Kaizens, sustained the results, and verified the teams were still running on their own three months later. It is not a classroom exam.
               </p>
             </blockquote>
 
