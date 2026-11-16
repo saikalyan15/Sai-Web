@@ -4,13 +4,19 @@ import matter from "gray-matter";
 import Image from "next/image";
 import Link from "next/link";
 import markdownToHtml from "@/lib/markdownToHtml";
+import { getBlogPosts } from "@/lib/blog";
 
-export const revalidate = 3600; // revalidate every hour
+// Built once per published post at build time (static export).
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return getBlogPosts().map((post) => ({ slug: post.slug }));
+}
 
 export default async function BlogPostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
 

@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-export const revalidate = 3600; // revalidate every hour
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.saikalyanakunuri.com"; // Replace with your actual domain

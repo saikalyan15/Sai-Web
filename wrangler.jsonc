@@ -1,0 +1,9 @@
+{
+  // Cloudflare Workers static-assets config: serves the Next.js static export.
+  "name": "sai-web",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
